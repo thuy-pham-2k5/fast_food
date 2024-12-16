@@ -3,7 +3,7 @@
 
 <html>
 <head>
-    <title>Login</title>
+    <title>Đăng nhập - Đăng ký tài khoản</title>
     <link rel="stylesheet" href="/authenticate/login.css">
     <script src="/authenticate/login.js" defer></script>
 </head>
@@ -12,22 +12,22 @@
     <!-- Sign Up -->
     <div class="container__form container--signup">
         <form action="/authenticate/sign-up" method="post" class="form" id="form1">
-            <h2 class="form__title">Sign Up</h2>
-            <input type="number" name="phone" placeholder="Phone" class="input" />
-            <input type="password" name="password" placeholder="Password" class="input" />
-            <input type="text" name="fullName" placeholder="Full Name" class="input" />
-            <button class="btn">Sign Up</button>
+            <h2 class="form__title">Đăng ký</h2>
+            <input type="number" id="phone" required name="phone" placeholder="Số điện thoại" class="input" />
+            <input type="password" id="password" required name="password" placeholder="Mật khẩu" class="input" />
+            <input type="text" required name="fullName" placeholder="Tên của bạn" class="input" />
+            <button class="btn">Đăng ký</button>
         </form>
     </div>
 
     <!-- Sign In -->
     <div class="container__form container--signin">
         <form action="#" class="form" id="form2">
-            <h2 class="form__title">Sign In</h2>
-            <input type="email" placeholder="Email" class="input" />
-            <input type="password" placeholder="Password" class="input" />
+            <h2 class="form__title">Đăng nhập</h2>
+            <input type="number" placeholder="Số điện thoại" class="input" />
+            <input type="password" placeholder="Mật khẩu" class="input" />
             <a href="#" class="link">Forgot your password?</a>
-            <button class="btn">Sign In</button>
+            <button class="btn">Đăng nhập</button>
         </form>
     </div>
 
@@ -35,12 +35,12 @@
     <div class="container__overlay">
         <div class="overlay">
             <div class="overlay__panel overlay--left">
-                <h3 style="color: white">Already have an account?</h3>
-                <button class="btn1" id="signIn">Sign In</button>
+                <h3 style="color: white">Bạn đã có tài khoản?</h3>
+                <button class="btn1" id="signIn">Đăng nhập ngay</button>
             </div>
             <div class="overlay__panel overlay--right">
-                <h3 style="color: white">Don't have an account?</h3>
-                <button class="btn1" id="signUp">Sign Up</button>
+                <h3 style="color: white">Bạn vẫn chưa có tài khoản?</h3>
+                <button class="btn1" id="signUp">Đăng ký ngay</button>
             </div>
         </div>
     </div>
