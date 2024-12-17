@@ -9,10 +9,10 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 
 public class ConnectDatabase {
-    private static String jdbcUrl = "jdbc:mysql://localhost:3306/demo";
+    private static String jdbcUrl = "jdbc:mysql://localhost:3306/fast_food";
     private static String username = "root";
     private static String password = "1234";
-    public static Connection getConnection() {
+    public static Connection getConnection() throws SQLException {
         Connection connection = null;
         try {
             Class.forName("com.mysql.jdbc.Driver");
@@ -20,7 +20,7 @@ public class ConnectDatabase {
         } catch (ClassNotFoundException e) {
             throw new RuntimeException(e);
         } catch (SQLException e) {
-            throw new RuntimeException(e);
+            connection = DriverManager.getConnection(jdbcUrl, username, "1312005");
         }
         return connection;
     }
