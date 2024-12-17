@@ -15,7 +15,7 @@ import java.io.IOException;
 public class SignupServlet extends HttpServlet {
     private final UserService userService = new UserServiceImpl();
     @Override
-    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) {
         String phone = req.getParameter("phone");
         String password = req.getParameter("password");
         String fullName = req.getParameter("fullName");

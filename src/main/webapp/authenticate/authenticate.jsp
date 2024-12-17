@@ -26,7 +26,7 @@
             <h2 class="form__title">Đăng nhập</h2>
             <input type="number" placeholder="Số điện thoại" class="input" />
             <input type="password" placeholder="Mật khẩu" class="input" />
-            <a href="#" class="link">Forgot your password?</a>
+<%--            <a href="#" class="link">Forgot your password?</a>--%>
             <button class="btn">Đăng nhập</button>
         </form>
     </div>
