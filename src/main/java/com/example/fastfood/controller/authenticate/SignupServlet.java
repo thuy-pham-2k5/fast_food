@@ -19,14 +19,13 @@ public class SignupServlet extends HttpServlet {
         String phone = req.getParameter("phone");
         String password = req.getParameter("password");
         String fullName = req.getParameter("fullName");
-        User user = userService.getUserByPhone(phone);
-        if (phone.length()!=10) {
+        if (phone.length()==10 && password.length()>=6) {
+            User user = userService.getUserByPhone(phone);
+            if (user!=null) {
+                System.out.println("chua co so dien thoai nay");
+            } else {
 
-        }
-        if (user!=null) {
-            System.out.println("chua co so dien thoai nay");
-        } else {
-
+            }
         }
     }
 }
