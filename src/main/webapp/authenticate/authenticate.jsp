@@ -4,8 +4,8 @@
 <html>
 <head>
     <title>Đăng nhập - Đăng ký tài khoản</title>
-    <link rel="stylesheet" href="/authenticate/authenticate.css">
-    <script src="/authenticate/authenticate.js" defer></script>
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/authenticate/authenticate.css">
+    <script src="${pageContext.request.contextPath}/authenticate/authenticate.js" defer></script>
 </head>
 <body>
 <div class="container right-panel-active">
