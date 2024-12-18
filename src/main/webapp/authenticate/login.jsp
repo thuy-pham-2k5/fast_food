@@ -14,7 +14,7 @@
         <input type="number" placeholder="Số điện thoại"><br>
         <input type="password" placeholder="Mật khẩu"><br>
         <input type="button" value="Đăng nhập"><br>
-        <label>Bạn chưa có tài khoản? </label><a href="#">Đăng ký ngay</a>
+        <label>Bạn chưa có tài khoản? </label><a href="/authenticate/register.jsp">Đăng ký ngay</a>
     </form>
 
     <div class="drops">

@@ -30,5 +30,21 @@ public class UserServiceImpl implements UserService {
         }
         return user;
     }
+    @Override
+    public void registerUser(String phone, String password, String fullName) {
+        try (Connection conn = ConnectDatabase.getConnection()) {
+            String sql = "INSERT INTO users (phone, password, full_name, role, status) VALUES (?, ?, ?, ?, ?)";
+            PreparedStatement pstmt = conn.prepareStatement(sql);
+            pstmt.setString(1, phone);
+            pstmt.setString(2, password);
+            pstmt.setString(3, fullName);
+            pstmt.setString(4, "user");
+            pstmt.setBoolean(5, Boolean.parseBoolean("activity"));
+            pstmt.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
 }
 
