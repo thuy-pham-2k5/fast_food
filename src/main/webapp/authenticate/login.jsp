@@ -11,7 +11,7 @@
 
 <div class="container">
     <form action="/user?action=login" method="post">
-        <p>Chào mừng!</p>
+        <p>Đăng nhập</p>
         <input type="number" id="phone" name="phone" placeholder="Số điện thoại"><br>
         <input type="password" id="password" name="password" placeholder="Mật khẩu"><br>
         <span></span>

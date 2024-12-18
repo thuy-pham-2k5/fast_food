@@ -23,7 +23,8 @@ body {
 form {
     background: var(--white);
     padding: 3em;
-    height: 320px;
+    height: 410px;
+    width: 260px;
     border-radius: 20px;
     border-left: 1px solid var(--white);
     border-top: 1px solid var(--white);

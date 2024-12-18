@@ -17,7 +17,7 @@ public class UserServlet extends HttpServlet {
     private final UserService userService = new UserServiceImpl();
 
     @Override
-    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException {
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String action = req.getParameter("action");
         if (action == null) {
             action = "";
@@ -46,46 +46,51 @@ public class UserServlet extends HttpServlet {
         }
     }
 
-    private void signup(HttpServletRequest req, HttpServletResponse resp) {
+    private void signup(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String phone = req.getParameter("phone");
         String password = req.getParameter("password");
+        String confirmPassword = req.getParameter("confirmPassword");
         String fullName = req.getParameter("fullName");
-        System.out.println(phone + " " + password + " " + fullName);
+
         if (phone.length() == 10 && password.length() >= 6) {
+            if (!password.equals(confirmPassword)) {
+                req.setAttribute("errorMessage", "Mật khẩu và xác nhận mật khẩu không khớp");
+                req.getRequestDispatcher("/authenticate/login.jsp").forward(req,resp);
+                return;
+            }
+
             User user = userService.getUserByPhone(phone);
             if (user != null) {
-                System.out.println("Da co so dien thoai nay");
+                req.setAttribute("errorMessage", "Đã có số điện thoại này");
+                req.getRequestDispatcher("/authenticate/login.jsp").forward(req,resp);
             } else {
-                System.out.println("Dang ky thanh cong" + phone + " " + password + " " + fullName);
+                userService.registerUser(phone, password, fullName);
             }
         } else {
-            System.out.println("Error");
+            req.setAttribute("errorMessage", "Error: Số điện thoại hoặc mật khẩu không hợp lệ");
+            req.getRequestDispatcher("/authenticate/login.jsp").forward(req,resp);
         }
     }
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String action = req.getParameter("action");
-        if (action == null) {
+        if (action == null)
             action = "";
-        }
+
         switch (action) {
             case "signup":
-                showSignupView(req, resp);
+                req.getRequestDispatcher("/authenticate/register.jsp").forward(req,resp);
                 break;
             default:
-                showLoginView(req, resp);
+                showLoginView (req, resp);
                 break;
         }
-    }
-
-    private void showSignupView(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        RequestDispatcher dispatcher = req.getRequestDispatcher("index.jsp");
-        dispatcher.forward(req, resp);
     }
 
     private void showLoginView(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         RequestDispatcher dispatcher = req.getRequestDispatcher("/authenticate/login.jsp");
         dispatcher.forward(req, resp);
     }
+
 }

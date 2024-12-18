@@ -4,4 +4,5 @@ import com.example.fastfood.model.User;
 
 public interface UserService {
     User getUserByPhone (String phone);
+    void registerUser(String phone , String password , String fullName);
 }
