@@ -1,4 +1,4 @@
-package com.example.fastfood.authenticate;
+package com.example.fastfood.controller.authenticate;
 
 import com.example.fastfood.model.User;
 import com.example.fastfood.service.UserService;
@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-@WebServlet(value = "/user")
+@WebServlet(value = "/authenticate/user")
 public class UserServlet extends HttpServlet {
     private final UserService userService = new UserServiceImpl();
 
@@ -39,7 +39,7 @@ public class UserServlet extends HttpServlet {
     }
 
     @Override
-    protected void doPost(HttpServletRequest req, HttpServletResponse resp) {
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String action = req.getParameter("action");
         if (action == null) {
             action = "";
@@ -52,21 +52,32 @@ public class UserServlet extends HttpServlet {
                 break;
         }
     }
-
-    private void signup(HttpServletRequest req, HttpServletResponse resp) {
+    private void signup(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String phone = req.getParameter("phone");
         String password = req.getParameter("password");
+        String confirmPassword = req.getParameter("confirmPassword");
         String fullName = req.getParameter("fullName");
-        System.out.println(phone + " " + password + " " + fullName);
+
         if (phone.length() == 10 && password.length() >= 6) {
+            if (!password.equals(confirmPassword)) {
+                req.setAttribute("errorMessage", "Mật khẩu và xác nhận mật khẩu không khớp");
+                show(req, resp);
+                return;
+            }
+
             User user = userService.getUserByPhone(phone);
             if (user != null) {
-                System.out.println("Da co so dien thoai nay");
+                req.setAttribute("errorMessage", "Đã có số điện thoại này");
+                show(req, resp);
             } else {
-                System.out.println("Dang ky thanh cong" + phone + " " + password + " " + fullName);
+                userService.registerUser(phone, password, fullName);
             }
         } else {
-            System.out.println("Error");
+            req.setAttribute("errorMessage", "Error: Số điện thoại hoặc mật khẩu không hợp lệ");
+            show(req, resp);
         }
     }
+
+
+
 }
