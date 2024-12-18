@@ -5,16 +5,18 @@
 <head>
     <title>Đăng nhập tài khoản</title>
     <link rel="stylesheet" href="${pageContext.request.contextPath}/authenticate/login.css">
+    <script src="/authenticate/login.js" defer></script>
 </head>
 <body>
 
 <div class="container">
-    <form >
+    <form action="/user?action=login" method="post">
         <p>Chào mừng!</p>
-        <input type="number" placeholder="Số điện thoại"><br>
-        <input type="password" placeholder="Mật khẩu"><br>
-        <input type="button" value="Đăng nhập"><br>
-        <label>Bạn chưa có tài khoản? </label><a href="#">Đăng ký ngay</a>
+        <input type="number" id="phone" name="phone" placeholder="Số điện thoại"><br>
+        <input type="password" id="password" name="password" placeholder="Mật khẩu"><br>
+        <span></span>
+        <input type="submit" value="Đăng nhập"><br>
+        <a href="/user?action=signup">Bạn chưa có tài khoản? Đăng ký ngay</a>
     </form>
 
     <div class="drops">
