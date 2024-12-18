@@ -55,20 +55,20 @@ public class UserServlet extends HttpServlet {
         if (phone.length() == 10 && password.length() >= 6) {
             if (!password.equals(confirmPassword)) {
                 req.setAttribute("errorMessage", "Mật khẩu và xác nhận mật khẩu không khớp");
-                req.getRequestDispatcher("/authenticate/login.jsp").forward(req,resp);
+                req.getRequestDispatcher("/view/authenticate/login.jsp").forward(req,resp);
                 return;
             }
 
             User user = userService.getUserByPhone(phone);
             if (user != null) {
                 req.setAttribute("errorMessage", "Đã có số điện thoại này");
-                req.getRequestDispatcher("/authenticate/login.jsp").forward(req,resp);
+                req.getRequestDispatcher("/view/authenticate/login.jsp").forward(req,resp);
             } else {
                 userService.registerUser(phone, password, fullName);
             }
         } else {
             req.setAttribute("errorMessage", "Error: Số điện thoại hoặc mật khẩu không hợp lệ");
-            req.getRequestDispatcher("/authenticate/login.jsp").forward(req,resp);
+            req.getRequestDispatcher("/view/authenticate/login.jsp").forward(req,resp);
         }
     }
 
@@ -80,7 +80,7 @@ public class UserServlet extends HttpServlet {
 
         switch (action) {
             case "signup":
-                req.getRequestDispatcher("/authenticate/register.jsp").forward(req,resp);
+                req.getRequestDispatcher("/view/authenticate/register.jsp").forward(req,resp);
                 break;
             default:
                 showLoginView (req, resp);
@@ -89,7 +89,7 @@ public class UserServlet extends HttpServlet {
     }
 
     private void showLoginView(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        RequestDispatcher dispatcher = req.getRequestDispatcher("/authenticate/login.jsp");
+        RequestDispatcher dispatcher = req.getRequestDispatcher("/view/authenticate/login.jsp");
         dispatcher.forward(req, resp);
     }
 

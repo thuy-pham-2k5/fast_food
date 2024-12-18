@@ -4,8 +4,8 @@
 <html>
 <head>
     <title>Đăng nhập tài khoản</title>
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/authenticate/login.css">
-    <script src="/authenticate/login.js" defer></script>
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/login.css">
+    <script src="/js/login.js" defer></script>
 </head>
 <body>
 

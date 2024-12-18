@@ -4,7 +4,7 @@
 <html>
 <head>
     <title>Đăng ký tài khoản</title>
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/authenticate/register.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/register.css">
 </head>
 <body>
 
@@ -16,7 +16,7 @@
         <input type="password" name="password" placeholder="Mật khẩu"><br>
         <input type="password" name="confirmPassword" placeholder="Xác nhận mật khẩu"><br>
         <input type="submit" value="Đăng nhập"><br>
-        <label>Bạn đã có tài khoản? </label><a href="/authenticate/login.jsp">Đăng nhập ngay</a>
+        <label>Bạn đã có tài khoản? </label><a href="/view/authenticate/login.jsp">Đăng nhập ngay</a>
     </form>
 
     <div class="drops">
