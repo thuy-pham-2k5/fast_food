@@ -10,13 +10,13 @@
 <body>
 
 <div class="container">
-    <form action="/user?action=login" method="post">
+    <form action="/authenticate?action=login" method="post">
         <p>Đăng nhập</p>
-        <input type="number" id="phone" name="phone" placeholder="Số điện thoại"><br>
-        <input type="password" id="password" name="password" placeholder="Mật khẩu"><br>
-        <span></span>
+        <input type="number" id="phone" name="phone" placeholder="Số điện thoại" required><br>
+        <input type="password" id="password" name="password" placeholder="Mật khẩu" required><br>
+        <span> ${sessionScope.errorMessage}</span><br>
         <input type="submit" value="Đăng nhập"><br>
-        <a href="/user?action=signup">Bạn chưa có tài khoản? Đăng ký ngay</a>
+        <a href="/authenticate?action=signup">Bạn chưa có tài khoản? Đăng ký ngay</a>
     </form>
 
     <div class="drops">

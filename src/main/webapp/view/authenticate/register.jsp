@@ -9,14 +9,14 @@
 <body>
 
 <div class="container">
-    <form action="user" method="post">
+    <form action="/authenticate?action=signup" method="post">
         <p>Đăng ký</p>
         <input type="text" name="fullName" placeholder="Họ tên"><br>
         <input type="number" name="phone" placeholder="Số điện thoại"><br>
         <input type="password" name="password" placeholder="Mật khẩu"><br>
         <input type="password" name="confirmPassword" placeholder="Xác nhận mật khẩu"><br>
         <input type="submit" value="Đăng nhập"><br>
-        <label>Bạn đã có tài khoản? </label><a href="/view/authenticate/login.jsp">Đăng nhập ngay</a>
+        <label>Bạn đã có tài khoản? </label><a href="/user?action=login">Đăng nhập ngay</a>
     </form>
 
     <div class="drops">

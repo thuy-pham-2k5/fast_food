@@ -2,6 +2,9 @@ package com.example.fastfood.service;
 
 import com.example.fastfood.database.ConnectDatabase;
 import com.example.fastfood.model.User;
+
+import javax.servlet.RequestDispatcher;
+import javax.servlet.http.*;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -12,6 +15,7 @@ public class UserServiceImpl implements UserService {
     public User getUserByPhone(String phone) {
         String query = "select * from users where phone = ?";
         User user = null;
+        HttpSessionListener listener;
         try (Connection connection = ConnectDatabase.getConnection()) {
             PreparedStatement preparedStatement = connection.prepareStatement(query);
             preparedStatement.setString(1, phone);
@@ -30,6 +34,29 @@ public class UserServiceImpl implements UserService {
         }
         return user;
     }
+
+    @Override
+    public User login(String phone, String password) {
+        String query = "select * from users where phone = ? and password = ?";
+        User user = null;
+        try (Connection connection = ConnectDatabase.getConnection()) {
+            PreparedStatement preparedStatement = connection.prepareStatement(query);
+            preparedStatement.setString(1, phone);
+            preparedStatement.setString(2, password);
+            ResultSet resultSet = preparedStatement.executeQuery();
+            if (resultSet.next()) {
+                int idUser = resultSet.getInt("id_user");
+                String fullName = resultSet.getString("full_name");
+                String role = resultSet.getString("role");
+                boolean status = resultSet.getBoolean("status");
+                user = new User(idUser, phone, password, fullName, role, status);
+            }
+            return user;
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
     @Override
     public void registerUser(String phone, String password, String fullName) {
         try (Connection conn = ConnectDatabase.getConnection()) {

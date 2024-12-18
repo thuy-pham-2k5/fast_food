@@ -10,10 +10,11 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
-@WebServlet(value = "/user")
-public class UserServlet extends HttpServlet {
+@WebServlet(value = "/authenticate")
+public class AuthenticateServlet extends HttpServlet {
     private final UserService userService = new UserServiceImpl();
 
     @Override
@@ -34,15 +35,29 @@ public class UserServlet extends HttpServlet {
         }
     }
 
-    private void login(HttpServletRequest req, HttpServletResponse resp) throws IOException {
+    private void login(HttpServletRequest req, HttpServletResponse resp) throws IOException, ServletException {
+        resp.setContentType("text/html; charset=UTF-8");
+        HttpSession session = req.getSession();
         String phone = req.getParameter("phone");
         String password = req.getParameter("password");
-        if (phone.length()==10 && password.length()>=6) {
-            if (userService.getUserByPhone(phone)!=null) {
-
+        User user = userService.login(phone, password);
+        if (user!=null) {
+            session.setAttribute("user", user);
+            if (user.getStatus()) {
+                RequestDispatcher dispatcher = null;
+                if (user.getRole().equals("admin")) {
+                    dispatcher = req.getRequestDispatcher("/view/admin/home.jsp");
+                } else if (user.getRole().equals("user")) {
+                    dispatcher = req.getRequestDispatcher("/view/user/home.jsp");
+                }
+                dispatcher.forward(req, resp);
+            } else {
+                session.setAttribute("errorMessage", "Tài khoản đã bị khóa");
+                resp.sendRedirect("/authenticate");
             }
         } else {
-            resp.sendRedirect("/user");
+            session.setAttribute("errorMessage", "Tài khoản không tồn tại");
+            resp.sendRedirect("/authenticate");
         }
     }
 
@@ -55,20 +70,19 @@ public class UserServlet extends HttpServlet {
         if (phone.length() == 10 && password.length() >= 6) {
             if (!password.equals(confirmPassword)) {
                 req.setAttribute("errorMessage", "Mật khẩu và xác nhận mật khẩu không khớp");
-                req.getRequestDispatcher("/view/authenticate/login.jsp").forward(req,resp);
+                showLoginView(req, resp);
                 return;
             }
-
             User user = userService.getUserByPhone(phone);
             if (user != null) {
                 req.setAttribute("errorMessage", "Đã có số điện thoại này");
-                req.getRequestDispatcher("/view/authenticate/login.jsp").forward(req,resp);
+                showLoginView(req, resp);
             } else {
                 userService.registerUser(phone, password, fullName);
             }
         } else {
             req.setAttribute("errorMessage", "Error: Số điện thoại hoặc mật khẩu không hợp lệ");
-            req.getRequestDispatcher("/view/authenticate/login.jsp").forward(req,resp);
+            showLoginView(req, resp);
         }
     }
 
@@ -80,10 +94,12 @@ public class UserServlet extends HttpServlet {
 
         switch (action) {
             case "signup":
-                req.getRequestDispatcher("/view/authenticate/register.jsp").forward(req,resp);
+                req.getRequestDispatcher("/view/authenticate/register.jsp").forward(req, resp);
                 break;
+            case "login":
+                showLoginView(req, resp);
             default:
-                showLoginView (req, resp);
+                showLoginView(req, resp);
                 break;
         }
     }
@@ -92,5 +108,4 @@ public class UserServlet extends HttpServlet {
         RequestDispatcher dispatcher = req.getRequestDispatcher("/view/authenticate/login.jsp");
         dispatcher.forward(req, resp);
     }
-
 }

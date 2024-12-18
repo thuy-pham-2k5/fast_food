@@ -109,6 +109,11 @@ form input[type="submit"]:active {
     background: rgba(255, 255, 255, 0.2);
 }
 
+form span {
+    color: red;
+    font-size: 12px;
+}
+
 ::placeholder {
     font-family: var(--font-family);
     font-weight: 400;
