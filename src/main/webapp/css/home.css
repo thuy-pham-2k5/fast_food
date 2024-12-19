@@ -1,28 +1,81 @@
+div {
+    width: 900px;
+    margin: 10px auto;
+}
 
-.body {
-    margin: 0;
-    overflow: auto;
-    width: 100%;
+.table {
+    width: 900px; /* Thu nhỏ chiều rộng của bảng */
+    margin: auto; /* Căn giữa bảng */
+    background-color: #ff0000; /* Màu nền đỏ cho Giáng sinh */
+    color: #ffffff; /* Màu chữ trắng */
+    border-collapse: collapse; /* Gộp viền bảng */
+    border-radius: 8px;
+    overflow: hidden;
 }
-.menubar {
-    background-color: #333;
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    width: 100%;
-    z-index: 1000;
+
+.table th, .table td {
+    border: 1px solid #ddd; /* Viền cho các ô */
+    padding: 8px; /* Khoảng cách bên trong ô */
+    text-align: center; /* Căn trái nội dung */
+    vertical-align: middle;
 }
-.menubar a {
-    float: left;
-    display: block;
-    padding: 14px 16px;
-    text-decoration: none;
+
+.table th {
+    background-color: #008000; /* Màu nền xanh lá cho tiêu đề bảng */
+    color: white; /* Màu chữ cho tiêu đề bảng */
 }
-.menubar a:hover {
-    background-color: #ddd;
-    color: black;
+
+.table img {
+    border: 2px solid #333; /* Viền cho hình ảnh */
+    border-radius: 5px; /* Bo tròn góc viền */
 }
-.content {
-    padding: 60px;
+
+input {
+    border: 1px solid #ccc; /* Viền xám */
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1); /* Bóng mờ */
+    padding: 8px; /* Khoảng cách bên trong ô */
+    border-radius: 3px; /* Bo tròn góc viền */
+    transition: border-color 0.3s ease-in-out; /* Hiệu ứng chuyển đổi viền */
+}
+
+input[type="text"] {
+    width: 300px;
+}
+
+input[type="text"]:focus {
+    border-color: #007bff; /* Viền xanh dương khi nhấn chuột vào */
+    outline: none; /* Loại bỏ viền mặc định của trình duyệt */
+}
+
+.div-search-add {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+form {
+    display: inline-block;
+}
+
+button {
+    background-color: #ff0000; /* Màu nền đỏ Giáng sinh */
+    color: #ffffff; /* Màu chữ trắng */
+    border: 1px solid #ccc; /* Viền xám */
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1); /* Bóng mờ */
+    padding: 8px 16px; /* Khoảng cách bên trong nút */
+    border-radius: 5px; /* Bo tròn góc viền */
+    cursor: pointer; /* Con trỏ chuột */
+    transition: background-color 0.3s ease-in-out; /* Hiệu ứng chuyển đổi màu nền */
+    display: inline-block; /* Sử dụng flexbox */
+    align-items: center; /* Căn giữa nội dung theo chiều dọc */
+    margin-left: auto;
+}
+
+button:hover {
+    background-color: #cc0000; /* Màu nền khi di chuột qua nút */
+}
+
+button img {
+    vertical-align: middle; /* Căn giữa hình ảnh theo chiều dọc */
+    margin-right: 8px; /* Khoảng cách giữa hình ảnh và chữ */
 }
