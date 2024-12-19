@@ -1,16 +1,23 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: ASUS
-  Date: 12/18/2024
-  Time: 6:46 PM
-  To change this template use File | Settings | File Templates.
---%>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<html>
+<!DOCTYPE html>
+<html lang="vi">
 <head>
-    <title>Fast Food - Trang chủ</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menubar Cố Định</title>
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/home.css">
 </head>
 <body>
+<div class="menubar">
+    <a href="#">Trang Chủ</a>
+    <a href="#">Giới Thiệu</a>
+    <a href="#">Dịch Vụ</a>
+    <a href="#">Liên Hệ</a>
+</div>
 
+<div class="content">
+    <h1>Nội Dung Trang</h1>
+    <p>Cuộn xuống để xem hiệu ứng của menubar cố định.</p>
+    <p style="height: 1500px;">Nội dung nhiều hơn ở đây...</p>
+</div>
 </body>
 </html>
