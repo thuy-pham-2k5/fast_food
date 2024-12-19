@@ -1,27 +1,28 @@
 
 .body {
     margin: 0;
+    overflow: auto;
+    width: 100%;
 }
 .menubar {
     background-color: #333;
-    overflow: hidden;
     position: fixed;
     top: 0;
+    left: 0;
+    right: 0;
     width: 100%;
     z-index: 1000;
 }
 .menubar a {
     float: left;
     display: block;
-    /*color: white; !* Màu chữ *!*/
-    /*text-align: center; !* Căn giữa chữ *!*/
-    padding: 14px 16px; /* Đệm cho liên kết */
-    text-decoration: none; /* Bỏ gạch chân */
+    padding: 14px 16px;
+    text-decoration: none;
 }
 .menubar a:hover {
-    background-color: #ddd; /* Màu nền khi di chuột qua */
-    color: black; /* Màu chữ khi di chuột qua */
+    background-color: #ddd;
+    color: black;
 }
 .content {
-    padding: 60px; /* Đệm để không bị che bởi menubar */
+    padding: 60px;
 }
