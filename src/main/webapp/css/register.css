@@ -56,6 +56,11 @@ form label {
     font-size: 13px;
 }
 
+form span {
+    color: red;
+    font-size: 12px;
+}
+
 form a:hover {
     text-shadow: 2px 2px 6px #00000040;
 }
