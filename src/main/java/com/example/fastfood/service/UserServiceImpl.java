@@ -66,7 +66,7 @@ public class UserServiceImpl implements UserService {
             pstmt.setString(2, password);
             pstmt.setString(3, fullName);
             pstmt.setString(4, "user");
-            pstmt.setBoolean(5, Boolean.parseBoolean("activity"));
+            pstmt.setBoolean(5, true);
             pstmt.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();
