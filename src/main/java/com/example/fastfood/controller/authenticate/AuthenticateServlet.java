@@ -67,24 +67,31 @@ public class AuthenticateServlet extends HttpServlet {
         String confirmPassword = req.getParameter("confirmPassword");
         String fullName = req.getParameter("fullName");
 
-        if (phone.length() == 10 && password.length() >= 6) {
-            if (!password.equals(confirmPassword)) {
-                req.setAttribute("errorMessage", "Mật khẩu và xác nhận mật khẩu không khớp");
-                showLoginView(req, resp);
-                return;
-            }
+        req.setAttribute("phone", phone);
+        req.setAttribute("fullName", fullName);
+
+        if (phone.length() == 10 && phone.startsWith("0") && password.length() >= 6 && password.equals(confirmPassword)) {
             User user = userService.getUserByPhone(phone);
-            if (user != null) {
-                req.setAttribute("errorMessage", "Đã có số điện thoại này");
-                showLoginView(req, resp);
-            } else {
+            if (user == null) {
                 userService.registerUser(phone, password, fullName);
+                resp.setContentType("text/html; charset=UTF-8");
+                resp.getWriter().write("<script>alert('Đăng ký thành công!'); window.location = '" + req.getContextPath() + "/authenticate?action=login';</script>");
+            } else {
+                req.setAttribute("errorMessage", "Số điện thoại đã tồn tại");
+                req.getRequestDispatcher("/view/authenticate/register.jsp").forward(req, resp);
             }
         } else {
-            req.setAttribute("errorMessage", "Error: Số điện thoại hoặc mật khẩu không hợp lệ");
-            showLoginView(req, resp);
+            if (!phone.startsWith("0") || phone.length() != 10) {
+                req.setAttribute("errorMessage", "Số điện thoại phải bắt đầu bằng 0 và đủ 10 số");
+            } else if (password.length() <= 6) {
+                req.setAttribute("errorMessage", "Mật khẩu ít nhất 6 ký tự");
+            } else if (!password.equals(confirmPassword)) {
+                req.setAttribute("errorMessage", "Mật khẩu và xác nhận mật khẩu không khớp");
+            }
+            req.getRequestDispatcher("/view/authenticate/register.jsp").forward(req, resp);
         }
     }
+
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -98,6 +105,7 @@ public class AuthenticateServlet extends HttpServlet {
                 break;
             case "login":
                 showLoginView(req, resp);
+                break;
             default:
                 showLoginView(req, resp);
                 break;

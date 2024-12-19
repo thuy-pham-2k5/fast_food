@@ -23,7 +23,7 @@ body {
 form {
     background: var(--white);
     padding: 3em;
-    height: 410px;
+    height: 430px;
     width: 260px;
     border-radius: 20px;
     border-left: 1px solid var(--white);
@@ -88,7 +88,8 @@ form input:hover {
 }
 
 form input[type="email"],
-form input[type="password"] {
+form input[type="password"],
+form input[type="text"]{
     &:focus {
         background: rgba(255, 255, 255, 0.1);
         box-shadow: 4px 4px 60px 8px rgba(0, 0, 0, 0.2);
@@ -173,3 +174,5 @@ textarea:focus,
 button:focus {
     outline: none;
 }
+
+

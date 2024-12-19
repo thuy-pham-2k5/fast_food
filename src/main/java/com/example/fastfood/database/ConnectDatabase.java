@@ -9,11 +9,11 @@ public class ConnectDatabase {
         Connection connection = null;
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
-            connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/fast_food", "root", "1234");
+            connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/fast_food", "root", "13122005");
         } catch (ClassNotFoundException e) {
             throw new RuntimeException(e);
         } catch (SQLException e) {
-            connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/fast_food", "root", "13122005");
+            connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/fast_food", "root", "1234");
             System.out.println("kết nối thành công");
         }
         return connection;
