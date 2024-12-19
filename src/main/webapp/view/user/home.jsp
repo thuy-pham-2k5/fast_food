@@ -4,11 +4,7 @@
     <title>Title</title>
 </head>
 <body>
-<div class="list-product">
-    <form>
 
-    </form>
-</div>
 </body>
 </html>
 
