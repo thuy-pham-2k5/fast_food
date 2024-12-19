@@ -6,7 +6,7 @@ import javax.servlet.RequestDispatcher;
 import javax.servlet.http.HttpServletRequest;
 
 public interface UserService {
-    User getUserByPhone (String phone);
+    Boolean getUserByPhone (String phone);
     User login (String phone, String password);
     void registerUser(String phone , String password , String fullName);
 }

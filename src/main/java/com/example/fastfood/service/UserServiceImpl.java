@@ -12,27 +12,17 @@ import java.sql.SQLException;
 
 public class UserServiceImpl implements UserService {
     @Override
-    public User getUserByPhone(String phone) {
+    public Boolean getUserByPhone(String phone) {
         String query = "select * from users where phone = ?";
         User user = null;
-        HttpSessionListener listener;
         try (Connection connection = ConnectDatabase.getConnection()) {
             PreparedStatement preparedStatement = connection.prepareStatement(query);
             preparedStatement.setString(1, phone);
             ResultSet resultSet = preparedStatement.executeQuery();
-            if (resultSet.next()) {
-                int id = resultSet.getInt("id_user");
-                String phone1 = resultSet.getString("phone");
-                String password = resultSet.getString("password");
-                String fullName = resultSet.getString("full_name");
-                String role = resultSet.getString("role");
-                Boolean status = resultSet.getBoolean("status");
-                user = new User(id, phone1, password, fullName, role, status);
-            }
+            return resultSet.next();
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
-        return user;
     }
 
     @Override
@@ -59,8 +49,8 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public void registerUser(String phone, String password, String fullName) {
+        String sql = "INSERT INTO users (phone, password, full_name, role, status) VALUES (?, ?, ?, ?, ?)";
         try (Connection conn = ConnectDatabase.getConnection()) {
-            String sql = "INSERT INTO users (phone, password, full_name, role, status) VALUES (?, ?, ?, ?, ?)";
             PreparedStatement pstmt = conn.prepareStatement(sql);
             pstmt.setString(1, phone);
             pstmt.setString(2, password);

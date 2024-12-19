@@ -14,7 +14,6 @@ public class ConnectDatabase {
             throw new RuntimeException(e);
         } catch (SQLException e) {
             connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/fast_food", "root", "1234");
-            System.out.println("kết nối thành công");
         }
         return connection;
     }
