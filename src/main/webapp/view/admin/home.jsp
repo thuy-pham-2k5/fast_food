@@ -11,6 +11,6 @@
     <title>Fast Food - Bảng điều khiển</title>
 </head>
 <body>
-
+<span>${sessionScope.user}</span>
 </body>
 </html>
