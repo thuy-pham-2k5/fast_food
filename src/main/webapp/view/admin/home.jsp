@@ -12,20 +12,26 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
-<html>
+<html lang="vi">
 <head>
     <meta charset="UTF-8">
     <title>Fast Food - Bảng điều khiển</title>
     <link rel="stylesheet" href="/css/home.css">
 </head>
 <body>
-<div>
+<div class="all">
     <div class="div-search-add">
-        <form>
-            <input type="text" name="keyword" placeholder="Tìm kiếm" width="300px">
-            <input type="submit" value="Tìm kiếm">
-        </form>
-        <button class="button">&#10055; Thêm món</button>
+        <div class="div-child">
+            <form action="/food?action=search" method="post">
+                <input type="text" name="keyword" placeholder="Tìm kiếm" width="300px">
+                <input type="submit" value="Tìm kiếm">
+            </form>
+        </div>
+       <div class="div-child div-right">
+           <a href="/food" class="a-load"><img class="img-load" src="https://img.lovepik.com/free-png/20211201/lovepik-pink-two-way-arrow-png-image_401232107_wh1200.png" width="40px" alt="Error"></a>
+           <a href="/food?action=add"><button class="button-add">&#10055; Thêm món</button></a>
+       </div>
+
     </div>
     <div>
         <table class="table">
@@ -50,11 +56,11 @@
                     <td>${food.getPrice()} $</td>
                     <td>${food.getQuantity()}</td>
                     <td>
-                        <a href="/food?action=edit&id=${food.id}"><img
+                        <a href="/food?action=edit&idFood=${food.id}"><img
                                 src="https://i.pinimg.com/736x/90/3f/e3/903fe3b2b3a404e8fa8f0e1a1dddc1be.jpg"
                                 width="30px"
                                 alt="Error"></a>
-                        <a href="/food?action=delete&id=${food.id}"><img
+                        <a href="/food?action=delete&idFood=${food.id}"><img
                                 src="https://i.pinimg.com/236x/a5/3c/28/a53c286dfdf33b31a0c7edf31fb5d67c.jpg"
                                 width="30px"
                                 alt="Error"></a>

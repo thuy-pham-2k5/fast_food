@@ -1,4 +1,4 @@
-div {
+.all {
     width: 900px;
     margin: 10px auto;
 }
@@ -53,11 +53,25 @@ input[type="text"]:focus {
     align-items: center;
 }
 
+.div-child {
+    width: 45%;
+}
+
+.div-right {
+    display: flex;
+    justify-content: flex-end;
+}
+
 form {
     display: inline-block;
 }
 
-button {
+.a-load {
+    display: inline-block; /* Ensure the <a> tag is inline-block */
+    margin-right: 10px; /* Add some margin to the right */
+}
+
+.button-add {
     background-color: #ff0000; /* Màu nền đỏ Giáng sinh */
     color: #ffffff; /* Màu chữ trắng */
     border: 1px solid #ccc; /* Viền xám */
@@ -68,14 +82,25 @@ button {
     transition: background-color 0.3s ease-in-out; /* Hiệu ứng chuyển đổi màu nền */
     display: inline-block; /* Sử dụng flexbox */
     align-items: center; /* Căn giữa nội dung theo chiều dọc */
-    margin-left: auto;
+    margin-left: 0;
+}
+
+.img-load {
+    border: 2px solid red; /* Viền đỏ */
+    border-radius: 5px; /* Bo góc 5px */
+    transition: background-color 0.3s, filter 0.3s; /* Hiệu ứng chuyển màu và đậm dần khi di chuột qua */
+}
+
+.img-load:hover {
+    background-color: rgba(255, 0, 0, 0.2); /* Chuyển dần sang màu đỏ nhạt */
+    mix-blend-mode: multiply; /* Tăng độ đậm dần */
 }
 
 button:hover {
     background-color: #cc0000; /* Màu nền khi di chuột qua nút */
 }
 
-button img {
+.button-add img {
     vertical-align: middle; /* Căn giữa hình ảnh theo chiều dọc */
     margin-right: 8px; /* Khoảng cách giữa hình ảnh và chữ */
 }
