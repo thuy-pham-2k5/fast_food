@@ -18,7 +18,6 @@ import java.util.List;
 @WebServlet(value = "/food")
 public class FoodServlet extends HttpServlet {
     private FoodService foodService = new FoodServiceImpl();
-
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         req.setCharacterEncoding("UTF-8");
@@ -50,6 +49,7 @@ public class FoodServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        req.setCharacterEncoding("UTF-8");
         resp.setCharacterEncoding("UTF-8");
         resp.setContentType("text/html; charset=UTF-8");
         String action = req.getParameter("action");
@@ -88,6 +88,7 @@ public class FoodServlet extends HttpServlet {
     private void showAllFoods(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         List<Food> foods = foodService.getAllFood();
         req.setAttribute("foods", foods);
+        req.getRequestDispatcher("/view/setup/header.jsp").include(req, resp);
         RequestDispatcher dispatcher = req.getRequestDispatcher("/view/admin/home.jsp");
         dispatcher.forward(req, resp);
     }

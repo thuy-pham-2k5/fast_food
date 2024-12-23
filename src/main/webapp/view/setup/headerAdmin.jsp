@@ -8,7 +8,6 @@
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/headerAdmin.css">
 </head>
 <body>
-</div>
 <div class="app">
     <div class="header">
         <div class="menu-circle"></div>

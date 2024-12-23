@@ -19,6 +19,9 @@
     <link rel="stylesheet" href="/css/home.css">
 </head>
 <body>
+<%
+    request.getRequestDispatcher("/view/setup/headerAdmin.jsp").include(request, response);
+%>
 <div class="all">
     <div class="div-search-add">
         <div class="div-child">
@@ -72,4 +75,9 @@
     </div>
 </div>
 </body>
+<footer>
+    <%
+        request.getRequestDispatcher("/view/setup/footer.jsp").include(request, response);
+    %>
+</footer>
 </html>
