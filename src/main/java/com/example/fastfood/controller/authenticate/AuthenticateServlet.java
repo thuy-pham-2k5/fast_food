@@ -13,6 +13,8 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
+import static java.lang.System.out;
+
 @WebServlet(value = "/authenticate")
 public class AuthenticateServlet extends HttpServlet {
     private final UserService userService = new UserServiceImpl();
@@ -41,16 +43,16 @@ public class AuthenticateServlet extends HttpServlet {
         String phone = req.getParameter("phone");
         String password = req.getParameter("password");
         User user = userService.login(phone, password);
-        if (user!=null) {
+        if (user != null) {
             session.setAttribute("user", user);
             if (user.getStatus()) {
                 RequestDispatcher dispatcher = null;
                 if (user.getRole().equals("admin")) {
-                    dispatcher = req.getRequestDispatcher("/view/setup/headerAdmin.jsp");
+                    dispatcher = req.getRequestDispatcher("/view/admin/home.jsp");
                 } else if (user.getRole().equals("user")) {
                     dispatcher = req.getRequestDispatcher("/view/setup/header.jsp");
                 }
-                dispatcher.forward(req, resp);
+                 dispatcher.forward(req, resp);
             } else {
                 session.setAttribute("errorMessage", "Tài khoản đã bị khóa");
                 resp.sendRedirect("/authenticate");
@@ -62,26 +64,20 @@ public class AuthenticateServlet extends HttpServlet {
     }
 
     private void signup(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        HttpSession session = req.getSession();
         String phone = req.getParameter("phone");
         String password = req.getParameter("password");
         String confirmPassword = req.getParameter("confirmPassword");
         String fullName = req.getParameter("fullName");
-
-        if (phone.length() == 10 && phone.startsWith("0") && password.length() >= 6 && password.equals(confirmPassword)) {
-            if (!userService.getUserByPhone(phone)) {
-                userService.registerUser(phone, password, fullName);
-                session.setAttribute("success", "true");
-                resp.sendRedirect("/authenticate");
-            } else {
-                req.setAttribute("success", "false");
-                req.getRequestDispatcher("/view/authenticate/register.jsp").forward(req, resp);
-            }
+        req.setAttribute("user", new User(fullName, phone, password));
+        req.setAttribute("confirmPassword", confirmPassword);
+        if (!userService.getUserByPhone(phone)) {
+            userService.registerUser(phone, password, fullName);
+            resp.sendRedirect("/authenticate");
         } else {
+            req.setAttribute("errorMessage", "Số điện thoại đã tồn tại");
             req.getRequestDispatcher("/view/authenticate/register.jsp").forward(req, resp);
         }
     }
-
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {

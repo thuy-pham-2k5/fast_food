@@ -1,8 +1,12 @@
-function validateForm() {
-    const password = document.querySelector('input[name="password"]').value;
-    const confirmPassword = document.querySelector('input[name="confirmPassword"]').value;
+const passwordInput = document.querySelector('input[name="password"]');
+const confirmPasswordInput = document.querySelector('input[name="confirmPassword"]');
 
-    if (password !== confirmPassword) {
-        confirmPassword.setCustomValidity("Mật khẩu và Xác nhận mật khẩu không khớp!");
+confirmPasswordInput.addEventListener("input", function () {
+    const password = passwordInput.value;
+    const confirmPassword = confirmPasswordInput.value;
+    if (confirmPassword === password) {
+        this.setCustomValidity("");
+    } else {
+        this.setCustomValidity("Các mật khẩu phải khớp nhau");
     }
-}
+});
