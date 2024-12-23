@@ -10,25 +10,31 @@
 <head>
     <meta charset="UTF-8">
     <title>Thêm món ăn</title>
+    <script src="/js/admin/addFood.js" defer></script>
 </head>
 <body>
 <div>
-    <form>
+    <h2>Cập nhật món ăn mới</h2>
+    <form action="/food?action=add" method="post">
         <div class="mb-3">
             <label for="exampleInputEmail1" class="form-label">Tên món ăn</label>
-            <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+            <input name="name" required type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
         </div>
         <div class="mb-3">
             <label for="exampleInputPassword1" class="form-label">Mô tả</label>
-            <input type="text" class="form-control" id="exampleInputPassword1">
+            <input name="description" required type="text" class="form-control" id="exampleInputPassword1">
         </div>
         <div class="mb-3">
             <label for="exampleInputEmail2" class="form-label">Giá</label>
-            <input type="email" class="form-control" id="exampleInputEmail2" aria-describedby="emailHelp">
+            <input name="price" required type="number" class="form-control" id="exampleInputEmail2" aria-describedby="emailHelp">
         </div>
         <div class="mb-3">
             <label for="exampleInputPassword2" class="form-label">Số lượng</label>
-            <input type="password" class="form-control" id="exampleInputPassword2">
+            <input name="quantity" required type="number" class="form-control" id="exampleInputPassword2">
+        </div>
+        <div class="mb-3">
+            <label for="exampleInputPassword3" class="form-label">Link hình ảnh</label>
+            <input name="imageUrl" required type="text" class="form-control" id="exampleInputPassword3">
         </div>
         <button type="submit" class="btn btn-primary">Submit</button>
     </form>

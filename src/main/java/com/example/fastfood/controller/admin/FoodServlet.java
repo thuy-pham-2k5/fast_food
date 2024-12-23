@@ -28,6 +28,7 @@ public class FoodServlet extends HttpServlet {
         if (action == null) action = "";
         switch (action) {
             case "add":
+                addNewFood (req, resp);
                 break;
             case "edit":
                 break;
@@ -37,6 +38,19 @@ public class FoodServlet extends HttpServlet {
             default:
                 break;
         }
+    }
+
+    private void addNewFood(HttpServletRequest req, HttpServletResponse resp) throws IOException {
+        String name = req.getParameter("name");
+        String description = req.getParameter("description");
+        double price = Double.parseDouble(req.getParameter("price"));
+        int quantity = Integer.parseInt(req.getParameter("quantity"));
+        String imageUrl = req.getParameter("imageUrl");
+
+        Food food = new Food(name, description, price, quantity, imageUrl);
+        this.foodService.add(food);
+
+        resp.sendRedirect("food");
     }
 
     private void searchByName(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -78,11 +92,13 @@ public class FoodServlet extends HttpServlet {
         foodService.delete(idFood);
         HttpSession session = req.getSession();
         String keyword = (String) session.getAttribute("keyword");
-        System.out.println(keyword);
-        req.setAttribute("foods", foodService.searchByName(keyword));
-        RequestDispatcher dispatcher = req.getRequestDispatcher("/view/admin/home.jsp");
-        dispatcher.forward(req, resp);
-
+        if (keyword==null) {
+            resp.sendRedirect("/food");
+        } else {
+            req.setAttribute("foods", foodService.searchByName(keyword));
+            RequestDispatcher dispatcher = req.getRequestDispatcher("/view/admin/home.jsp");
+            dispatcher.forward(req, resp);
+        }
     }
 
     private void showAllFoods(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {

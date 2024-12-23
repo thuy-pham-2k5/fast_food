@@ -5,7 +5,7 @@
 <head>
     <title>Đăng ký tài khoản</title>
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/register.css">
-    <script src="/js/register.js" defer></script>
+    <script src="/js/authenticate/register.js" defer></script>
 </head>
 <body>
 
