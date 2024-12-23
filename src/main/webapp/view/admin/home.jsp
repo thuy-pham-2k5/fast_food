@@ -11,6 +11,7 @@
         crossorigin="anonymous"></script>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
 <html lang="vi">
 <head>
@@ -43,6 +44,7 @@
                 <th scope="col">Mô tả</th>
                 <th scope="col">Giá</th>
                 <th scope="col">Số lượng</th>
+                <th scope="col">Tổng giá</th>
                 <th scope="col"></th>
             </tr>
             </thead>
@@ -55,6 +57,7 @@
                     <td>${food.getDescription()}</td>
                     <td>${food.getPrice()} $</td>
                     <td>${food.getQuantity()}</td>
+                    <td><fmt:formatNumber value="${food.getPrice() * food.getQuantity()}" pattern="#, ##0.00"/> $</td>
                     <td>
                         <a href="/food?action=edit&idFood=${food.id}"><img
                                 src="https://i.pinimg.com/736x/90/3f/e3/903fe3b2b3a404e8fa8f0e1a1dddc1be.jpg"
