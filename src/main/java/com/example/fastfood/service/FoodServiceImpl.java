@@ -11,7 +11,7 @@ public class FoodServiceImpl implements FoodService {
     @Override
     public List<Food> getAllFood() {
         List<Food> foods = new ArrayList<>();
-        String query = "select * from foods";
+        String query = "select * from foods order by id_food desc";
         try (Connection connection = ConnectDatabase.getConnection()) {
             PreparedStatement preparedStatement = connection.prepareStatement(query);
             ResultSet resultSet = preparedStatement.executeQuery();
