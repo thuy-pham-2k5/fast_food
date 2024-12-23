@@ -13,8 +13,6 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
-import static java.lang.System.out;
-
 @WebServlet(value = "/authenticate")
 public class AuthenticateServlet extends HttpServlet {
     private final UserService userService = new UserServiceImpl();
@@ -46,13 +44,11 @@ public class AuthenticateServlet extends HttpServlet {
         if (user != null) {
             session.setAttribute("user", user);
             if (user.getStatus()) {
-                RequestDispatcher dispatcher = null;
                 if (user.getRole().equals("admin")) {
-                    dispatcher = req.getRequestDispatcher("/view/admin/home.jsp");
+                    resp.sendRedirect("food");
                 } else if (user.getRole().equals("user")) {
-                    dispatcher = req.getRequestDispatcher("/view/user/home.jsp");
+                    resp.sendRedirect("home-user");
                 }
-                 dispatcher.forward(req, resp);
             } else {
                 session.setAttribute("errorMessage", "Tài khoản đã bị khóa");
                 resp.sendRedirect("/authenticate");

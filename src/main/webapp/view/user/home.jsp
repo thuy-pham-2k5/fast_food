@@ -4,7 +4,7 @@
     <title>Title</title>
 </head>
 <body>
-
+<h2>User Home View</h2>
 </body>
 </html>
 
