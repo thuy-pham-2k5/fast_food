@@ -29,6 +29,7 @@ public class FoodServiceImpl implements FoodService {
         String query = "select * from foods where id_food = ?";
         try (Connection connection = ConnectDatabase.getConnection()) {
             PreparedStatement preparedStatement = connection.prepareStatement(query);
+            preparedStatement.setInt(1, id);
             ResultSet resultSet = preparedStatement.executeQuery();
             if (resultSet.next()) {
                 return getFoodInDatabase(resultSet);

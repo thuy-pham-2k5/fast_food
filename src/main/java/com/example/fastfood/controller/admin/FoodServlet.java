@@ -31,6 +31,7 @@ public class FoodServlet extends HttpServlet {
                 addNewFood (req, resp);
                 break;
             case "edit":
+                editInformFood (req, resp);
                 break;
             case "search":
                 searchByName(req, resp);
@@ -38,6 +39,20 @@ public class FoodServlet extends HttpServlet {
             default:
                 break;
         }
+    }
+
+    private void editInformFood(HttpServletRequest req, HttpServletResponse resp) throws IOException {
+        int id = Integer.parseInt(req.getParameter("id"));
+        String name = req.getParameter("name");
+        String description = req.getParameter("description");
+        double price = Double.parseDouble(req.getParameter("price"));
+        int quantity = Integer.parseInt(req.getParameter("quantity"));
+        String imageUrl = req.getParameter("imageUrl");
+
+        Food food = new Food(id, name, description, price, quantity, imageUrl);
+        this.foodService.update(id, food);
+
+        resp.sendRedirect("/food");
     }
 
     private void addNewFood(HttpServletRequest req, HttpServletResponse resp) throws IOException {
@@ -73,6 +88,7 @@ public class FoodServlet extends HttpServlet {
                 showAddFood (req, resp);
                 break;
             case "edit":
+                showEditFood (req, resp);
                 break;
             case "delete":
                 deleteFood(req, resp);
@@ -81,6 +97,12 @@ public class FoodServlet extends HttpServlet {
                 showAllFoods(req, resp);
                 break;
         }
+    }
+
+    private void showEditFood(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        int id = Integer.parseInt(req.getParameter("idFood"));
+        req.setAttribute("food", foodService.getFoodById(id));
+        req.getRequestDispatcher("/view/admin/editFood.jsp").forward(req, resp);
     }
 
     private void showAddFood(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
