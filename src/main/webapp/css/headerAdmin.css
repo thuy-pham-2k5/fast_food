@@ -117,7 +117,6 @@ body.light-mode .video-bg:before {
     height: 58px;
     width: 100%;
     border-bottom: 1px solid var(--border-color);
-    padding: 0 30px;
     white-space: nowrap;
 }
 
@@ -195,17 +194,14 @@ body.light-mode .video-bg:before {
 .header-menu-icon {
     display: flex;
     align-items: center;
+    margin-left: 600px;
 }
 .header-menu-icon a {
-    margin-left: 70%;
+    margin-left: 65%;
     text-decoration: none;
     color: var(--inactive-color);
     border-bottom: 2px solid transparent;
     transition: 0.3s;
-}
-.test {
-    max-height: 1000px;
-    color: black;
 }
 
 
