@@ -1,23 +1,36 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
 <html lang="vi">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Menubar Cố Định</title>
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/home.css">
 </head>
 <body>
-<div class="menubar">
-    <a href="#">Trang Chủ</a>
-    <a href="#">Giới Thiệu</a>
-    <a href="#">Dịch Vụ</a>
-    <a href="#">Liên Hệ</a>
 </div>
-
-<div class="content">
-    <h1>Nội Dung Trang</h1>
-    <p>Cuộn xuống để xem hiệu ứng của menubar cố định.</p>
-    <p style="height: 1500px;">Nội dung nhiều hơn ở đây...</p>
+<div class="app">
+    <div class="header">
+        <div class="menu-circle"></div>
+        <div class="header-menu">
+            <a class="menu-link is-active" href="#">Đồ ăn</a>
+            <a class="menu-link" href="#">Đồ uống</a>
+            <a class="menu-link" href="#">item</a>
+            <a class="menu-link" href="#">item</a>
+        </div>
+        <div class="search-bar">
+            <input type="text" placeholder="Tìm kiếm">
+        </div>
+        <div class="header">
+            <div class="menu-circle">
+                <div class="header-menu-icon">
+                    <a class="menu-link" href="#"><img class="icon" src="/image/food-delivery.png"></a>
+                    <a class="menu-link" href="#"><img class="icon" src="/image/user.png"></a>
+                    <a class="menu-link" href="#"><img class="icon" src="/image/exit.png"></a>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 </body>
 </html>
