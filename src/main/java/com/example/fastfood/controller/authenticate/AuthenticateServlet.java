@@ -50,7 +50,7 @@ public class AuthenticateServlet extends HttpServlet {
                 if (user.getRole().equals("admin")) {
                     dispatcher = req.getRequestDispatcher("/view/admin/home.jsp");
                 } else if (user.getRole().equals("user")) {
-                    dispatcher = req.getRequestDispatcher("/view/user/home.jsp");
+                    dispatcher = req.getRequestDispatcher("/view/setup/header.jsp");
                 }
                  dispatcher.forward(req, resp);
             } else {

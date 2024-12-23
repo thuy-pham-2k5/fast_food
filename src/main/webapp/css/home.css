@@ -104,3 +104,13 @@ button:hover {
     vertical-align: middle; /* Căn giữa hình ảnh theo chiều dọc */
     margin-right: 8px; /* Khoảng cách giữa hình ảnh và chữ */
 }
+html, body {
+    height: 100%;
+    margin: 0;
+}
+
+.all {
+    min-height: calc(100vh - 100px); /* Adjust 100px to the height of your header and footer */
+    display: flex;
+    flex-direction: column;
+}
