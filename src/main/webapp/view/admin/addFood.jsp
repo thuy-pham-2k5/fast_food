@@ -10,7 +10,6 @@
 <head>
     <meta charset="UTF-8">
     <title>Thêm món ăn</title>
-    <script src="/js/admin/addFood.js" defer></script>
 </head>
 <body>
 <div>
