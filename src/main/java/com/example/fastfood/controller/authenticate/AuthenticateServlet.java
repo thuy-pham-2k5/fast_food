@@ -46,9 +46,9 @@ public class AuthenticateServlet extends HttpServlet {
             if (user.getStatus()) {
                 RequestDispatcher dispatcher = null;
                 if (user.getRole().equals("admin")) {
-                    dispatcher = req.getRequestDispatcher("/view/admin/headerAdmin.jsp");
+                    dispatcher = req.getRequestDispatcher("/view/setup/headerAdmin.jsp");
                 } else if (user.getRole().equals("user")) {
-                    dispatcher = req.getRequestDispatcher("/view/user/header.jsp");
+                    dispatcher = req.getRequestDispatcher("/view/setup/header.jsp");
                 }
                 dispatcher.forward(req, resp);
             } else {
