@@ -56,6 +56,7 @@ public class FoodServlet extends HttpServlet {
         if (action == null) action = "";
         switch (action) {
             case "add":
+                showAddFood (req, resp);
                 break;
             case "edit":
                 break;
@@ -66,6 +67,10 @@ public class FoodServlet extends HttpServlet {
                 showAllFoods(req, resp);
                 break;
         }
+    }
+
+    private void showAddFood(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        req.getRequestDispatcher("/view/admin/addFood.jsp").forward(req, resp);
     }
 
     private void deleteFood(HttpServletRequest req, HttpServletResponse resp) throws IOException, ServletException {
