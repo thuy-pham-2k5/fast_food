@@ -14,11 +14,10 @@
 </head>
 <body>
 <header>
-    <%
-        request.getRequestDispatcher("/view/admin/header.jsp").include(request, response);
-    %>
+    <jsp:include page="header.jsp"/>
 </header>
-<main class="table-container">
+
+<main>
     <div class="all">
         <div class="div-search-add">
             <div class="div-child">
@@ -78,6 +77,7 @@
         </div>
     </div>
 </main>
+
 <footer>
     <jsp:include page="footer.jsp"/>
 </footer>
