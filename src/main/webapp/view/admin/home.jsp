@@ -20,7 +20,11 @@
     <link rel="stylesheet" href="/css/home.css">
 </head>
 <body>
-<main>
+    <header>
+        <jsp:include page="header.jsp"/>
+    </header>
+
+    <main>
     <div class="all">
         <div class="div-search-add">
             <div class="div-child">
@@ -81,5 +85,9 @@
         </div>
     </div>
 </main>
+
+    <footer>
+         <jsp:include page="footer.jsp"/>
+    </footer>
 </body>
 </html>

@@ -60,17 +60,6 @@ public class AuthenticateServlet extends HttpServlet {
         }
     }
 
-    private void setSessionWhenLogin (HttpServletRequest request, HttpServletResponse response, int idUser) {
-        HttpSession session = request.getSession(false);
-        if (session != null) {
-            if (idUser == (int) session.getAttribute("idUser")) {
-
-            }
-        } else {
-            session = request.getSession(); //tạo session mới
-        }
-    }
-
     private void signup(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String phone = req.getParameter("phone");
         String password = req.getParameter("password");
