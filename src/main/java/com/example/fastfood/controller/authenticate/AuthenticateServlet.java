@@ -3,6 +3,7 @@ package com.example.fastfood.controller.authenticate;
 import com.example.fastfood.model.User;
 import com.example.fastfood.service.UserService;
 import com.example.fastfood.service.UserServiceImpl;
+import com.sun.net.httpserver.spi.HttpServerProvider;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -42,7 +43,7 @@ public class AuthenticateServlet extends HttpServlet {
         String password = req.getParameter("password");
         User user = userService.login(phone, password);
         if (user != null) {
-            session.setAttribute("user", user);
+            session.setAttribute("idUser", user.getId());
             if (user.getStatus()) {
                 if (user.getRole().equals("admin")) {
                     resp.sendRedirect("food");
@@ -56,6 +57,17 @@ public class AuthenticateServlet extends HttpServlet {
         } else {
             session.setAttribute("errorMessage", "Tài khoản không tồn tại");
             resp.sendRedirect("/authenticate");
+        }
+    }
+
+    private void setSessionWhenLogin (HttpServletRequest request, HttpServletResponse response, int idUser) {
+        HttpSession session = request.getSession(false);
+        if (session != null) {
+            if (idUser == (int) session.getAttribute("idUser")) {
+
+            }
+        } else {
+            session = request.getSession(); //tạo session mới
         }
     }
 
@@ -86,8 +98,6 @@ public class AuthenticateServlet extends HttpServlet {
                 req.getRequestDispatcher("/view/authenticate/register.jsp").forward(req, resp);
                 break;
             case "login":
-                showLoginView(req, resp);
-                break;
             default:
                 showLoginView(req, resp);
                 break;
