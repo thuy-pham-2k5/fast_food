@@ -16,7 +16,7 @@
                 <a class="menu-link is-active" href="#">Trang chủ</a>
                 <a class="menu-link" href="#">Sản phẩm</a>
                 <a class="menu-link" href="#">Đơn hàng</a>
-                <a class="menu-link" href="#">Khách h</a>
+                <a class="menu-link" href="#">Khách hàng</a>
             </div>
             <div class="header">
                 <div class="menu-circle">

@@ -25,8 +25,7 @@
         request.getRequestDispatcher("/view/admin/header.jsp").include(request, response);
     %>
 </header>
-<main>
-    <div class="table-container">
+<main class="table-container">
         <div class="all">
             <div class="div-search-add">
                 <div class="div-child">
@@ -43,7 +42,6 @@
                         <button class="button-add">&#10055; Thêm món</button>
                     </a>
                 </div>
-
             </div>
             <div>
                 <table class="table">
@@ -86,10 +84,9 @@
                 </table>
             </div>
         </div>
-    </div>
+    <footer>
+        <jsp:include page="footer.jsp"/>
+    </footer>
 </main>
-<footer>
-    <jsp:include page="footer.jsp"/>
-</footer>
 </body>
 </html>

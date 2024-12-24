@@ -36,7 +36,7 @@
             <label for="exampleInputPassword3" class="form-label">Link hình ảnh</label>
             <input name="imageUrl" required type="text" class="form-control" id="exampleInputPassword3">
         </div>
-        <button type="submit" class="btn btn-primary">Submit</button>
+        <button type="submit" class="btn btn-primary">Cập nhật</button>
     </form>
 </div>
 </body>
