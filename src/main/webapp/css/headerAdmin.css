@@ -127,6 +127,7 @@ body.light-mode .video-bg:before {
 .header-menu {
     display: flex;
     align-items: center;
+    padding-right: 35%;
 }
 
 .header-menu a {
@@ -192,7 +193,6 @@ body.light-mode .video-bg:before {
 .header-menu-icon {
     display: flex;
     align-items: center;
-    margin-left: 450px;
 }
 .header-menu-icon a {
     margin-left: 65%;

@@ -31,7 +31,7 @@
                 <div class="div-child">
                     <form action="/food?action=search" method="post">
                         <input type="text" name="keyword" placeholder="Tìm kiếm" width="300px">
-                        <input type="submit" value="Tìm kiếm">
+                        <input type="submit" >
                     </form>
                 </div>
                 <div class="div-child div-right">
