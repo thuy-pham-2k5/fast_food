@@ -5,14 +5,14 @@
 
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-
 <html>
 <head>
     <meta charset="UTF-8">
     <title>Cập nhật thông tin món ăn</title>
+    <link rel="stylesheet" href="/css/feature.css">
 </head>
 <body>
-<div>
+<div class="form-container">
     <h2>Cập nhật thông tin món ăn</h2>
     <form action="/food?action=edit&id=${food.id}" method="post">
         <div class="mb-3">
@@ -35,7 +35,7 @@
             <label for="exampleInputPassword3" class="form-label">Link hình ảnh</label>
             <input name="imageUrl" value="${food.imageUrl}" required type="text" class="form-control" id="exampleInputPassword3">
         </div>
-        <button type="submit" class="btn btn-primary">Submit</button>
+        <button type="submit" class="btn btn-primary">Cập nhật</button>
     </form>
 </div>
 </body>

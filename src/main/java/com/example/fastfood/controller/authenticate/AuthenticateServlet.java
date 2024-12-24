@@ -3,8 +3,6 @@ package com.example.fastfood.controller.authenticate;
 import com.example.fastfood.model.User;
 import com.example.fastfood.service.UserService;
 import com.example.fastfood.service.UserServiceImpl;
-import com.sun.net.httpserver.spi.HttpServerProvider;
-
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;

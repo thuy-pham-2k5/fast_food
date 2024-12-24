@@ -10,9 +10,10 @@
 <head>
     <meta charset="UTF-8">
     <title>Thêm món ăn</title>
+    <link rel="stylesheet" href="/css/feature.css">
 </head>
 <body>
-<div>
+<div class="form-container">
     <h2>Cập nhật món ăn mới</h2>
     <form action="/food?action=add" method="post">
         <div class="mb-3">
@@ -35,7 +36,7 @@
             <label for="exampleInputPassword3" class="form-label">Link hình ảnh</label>
             <input name="imageUrl" required type="text" class="form-control" id="exampleInputPassword3">
         </div>
-        <button type="submit" class="btn btn-primary">Submit</button>
+        <button type="submit" class="btn btn-primary">Cập nhật</button>
     </form>
 </div>
 </body>
