@@ -25,6 +25,18 @@
             <input name="description" required type="text" class="form-control" id="exampleInputPassword1">
         </div>
         <div class="mb-3">
+            <label for="exampleInputPassword6" class="form-label">Loại</label>
+            <select name="type" class="form-control" id="exampleInputPassword6">
+                <option value="Gà tây, Bò hầm">Gà tây, Bò hầm</option>
+                <option value="Kẹo">Kẹo</option>
+                <option value="Bánh kem">Bánh kem</option>
+                <option value="Bánh nướng">Bánh nướng</option>
+                <option value="Súp">Súp</option>
+                <option value="Rượu">Rượu</option>
+                <option value="Khác">Khác</option>
+            </select>
+        </div>
+        <div class="mb-3">
             <label for="exampleInputEmail2" class="form-label">Giá</label>
             <input name="price" required type="number" class="form-control" id="exampleInputEmail2" aria-describedby="emailHelp">
         </div>

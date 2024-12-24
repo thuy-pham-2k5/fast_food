@@ -1,25 +1,30 @@
 package com.example.fastfood.model;
 
 public class Food {
-    private int id, quantity;
-    private String name, description, imageUrl;
+    private int id;
+    private String name, description;
     private double price;
+    private int quantity;
+    private String imageUrl, type;
 
-    public Food(int id, String name, String description, double price, int quantity, String imageUrl) {
+
+    public Food(int id, String name, String description, double price, int quantity, String imageUrl, String type) {
         this.id = id;
         this.quantity = quantity;
         this.name = name;
         this.description = description;
         this.imageUrl = imageUrl;
         this.price = price;
+        this.type = type;
     }
 
-    public Food(String name, String description, double price, int quantity, String imageUrl) {
+    public Food(String name, String description, double price, int quantity, String imageUrl, String type) {
         this.quantity = quantity;
         this.name = name;
         this.description = description;
         this.imageUrl = imageUrl;
         this.price = price;
+        this.type = type;
     }
 
     @Override
@@ -31,6 +36,7 @@ public class Food {
                 ", price=" + price +
                 ", quantity=" + quantity +
                 ", imageUrl='" + imageUrl + '\'' +
+                ", type='" + type + '\'' +
                 '}';
     }
 
@@ -80,5 +86,13 @@ public class Food {
 
     public void setPrice(double price) {
         this.price = price;
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
     }
 }

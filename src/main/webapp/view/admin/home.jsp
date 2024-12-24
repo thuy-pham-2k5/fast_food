@@ -43,6 +43,7 @@
                     <th scope="col">Hình ảnh</th>
                     <th scope="col">Tên</th>
                     <th scope="col">Mô tả</th>
+                    <th scope="col">Loại</th>
                     <th scope="col">Giá</th>
                     <th scope="col">Số lượng</th>
                     <th scope="col">Tổng giá</th>
@@ -56,6 +57,7 @@
                         <td><img src="${food.getImageUrl()}" alt="Error" width="100px"></td>
                         <td>${food.getName()}</td>
                         <td>${food.getDescription()}</td>
+                        <td>${food.getType()}</td>
                         <td>${food.getPrice()} $</td>
                         <td>${food.getQuantity()}</td>
                         <td><fmt:formatNumber value="${food.getPrice() * food.getQuantity()}" pattern="#, ##0.00"/> $

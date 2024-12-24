@@ -43,7 +43,7 @@ public class FoodServiceImpl implements FoodService {
 
     @Override
     public void add(Food food) {
-        String query = "INSERT INTO foods (`name`, `description`, `price`, `quantity`, `image_url`) VALUES (?, ?, ?, ?, ?)";
+        String query = "INSERT INTO foods (`name`, `description`, `price`, `quantity`, `image_url`, `type`) VALUES (?, ?, ?, ?, ?, ?)";
         try (Connection connection = ConnectDatabase.getConnection()) {
             PreparedStatement preparedStatement = connection.prepareStatement(query);
             preparedStatement.setString(1, food.getName());
@@ -51,6 +51,7 @@ public class FoodServiceImpl implements FoodService {
             preparedStatement.setDouble(3, food.getPrice());
             preparedStatement.setInt(4, food.getQuantity());
             preparedStatement.setString(5, food.getImageUrl());
+            preparedStatement.setString(6, food.getType());
             preparedStatement.executeUpdate();
         } catch (SQLException e) {
             throw new RuntimeException(e);
@@ -59,7 +60,7 @@ public class FoodServiceImpl implements FoodService {
 
     @Override
     public void update(int id, Food food) {
-        String query = "UPDATE `fast_food`.`foods` SET `name` = ?, `description` = ?, `price` = ?, `quantity` = ?, image_url = ? WHERE (`id_food` = ?)";
+        String query = "UPDATE `fast_food`.`foods` SET `name` = ?, `description` = ?, `price` = ?, `quantity` = ?, image_url = ?, type = ? WHERE (`id_food` = ?)";
         try (Connection connection = ConnectDatabase.getConnection()) {
             PreparedStatement preparedStatement = connection.prepareStatement(query);
             preparedStatement.setString(1, food.getName());
@@ -67,7 +68,8 @@ public class FoodServiceImpl implements FoodService {
             preparedStatement.setDouble(3, food.getPrice());
             preparedStatement.setInt(4, food.getQuantity());
             preparedStatement.setString(5, food.getImageUrl());
-            preparedStatement.setInt(6, id);
+            preparedStatement.setString(6, food.getType());
+            preparedStatement.setInt(7, id);
             preparedStatement.executeUpdate();
         } catch (SQLException e) {
             throw new RuntimeException(e);
@@ -110,6 +112,7 @@ public class FoodServiceImpl implements FoodService {
         double price = resultSet.getDouble("price");
         int quantity = resultSet.getInt("quantity");
         String imageUrl = resultSet.getString("image_url");
-        return new Food(id, name, description, price, quantity, imageUrl);
+        String type = resultSet.getString("type");
+        return new Food(id, name, description, price, quantity, imageUrl, type);
     }
 }

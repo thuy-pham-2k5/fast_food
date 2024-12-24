@@ -47,8 +47,8 @@ public class FoodServlet extends HttpServlet {
         double price = Double.parseDouble(req.getParameter("price"));
         int quantity = Integer.parseInt(req.getParameter("quantity"));
         String imageUrl = req.getParameter("imageUrl");
-
-        Food food = new Food(id, name, description, price, quantity, imageUrl);
+        String type = req.getParameter("type");
+        Food food = new Food(id, name, description, price, quantity, imageUrl, type);
         this.foodService.update(id, food);
 
         resp.sendRedirect("/food");
@@ -60,8 +60,8 @@ public class FoodServlet extends HttpServlet {
         double price = Double.parseDouble(req.getParameter("price"));
         int quantity = Integer.parseInt(req.getParameter("quantity"));
         String imageUrl = req.getParameter("imageUrl");
-
-        Food food = new Food(name, description, price, quantity, imageUrl);
+        String type = req.getParameter("type");
+        Food food = new Food(name, description, price, quantity, imageUrl, type);
         this.foodService.add(food);
 
         resp.sendRedirect("food");
