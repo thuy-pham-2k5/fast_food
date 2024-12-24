@@ -20,67 +20,76 @@
     <link rel="stylesheet" href="/css/home.css">
 </head>
 <body>
-<%
-    request.getRequestDispatcher("/view/setup/headerAdmin.jsp").include(request, response);
-%>
-<div class="all">
-    <div class="div-search-add">
-        <div class="div-child">
-            <form action="/food?action=search" method="post">
-                <input type="text" name="keyword" placeholder="Tìm kiếm" width="300px">
-                <input type="submit" value="Tìm kiếm">
-            </form>
-        </div>
-       <div class="div-child div-right">
-           <a href="/food" class="a-load"><img class="img-load" src="https://img.lovepik.com/free-png/20211201/lovepik-pink-two-way-arrow-png-image_401232107_wh1200.png" width="40px" alt="Error"></a>
-           <a href="/food?action=add"><button class="button-add">&#10055; Thêm món</button></a>
-       </div>
-
-    </div>
-    <div>
-        <table class="table">
-            <thead>
-            <tr>
-                <th scope="col">#</th>
-                <th scope="col">Hình ảnh</th>
-                <th scope="col">Tên</th>
-                <th scope="col">Mô tả</th>
-                <th scope="col">Giá</th>
-                <th scope="col">Số lượng</th>
-                <th scope="col">Tổng giá</th>
-                <th scope="col"></th>
-            </tr>
-            </thead>
-            <tbody>
-            <c:forEach var="food" items="${foods}">
-                <tr>
-                    <td>${food.getId()}</td>
-                    <td><img src="${food.getImageUrl()}" alt="Error" width="100px"></td>
-                    <td>${food.getName()}</td>
-                    <td>${food.getDescription()}</td>
-                    <td>${food.getPrice()} $</td>
-                    <td>${food.getQuantity()}</td>
-                    <td><fmt:formatNumber value="${food.getPrice() * food.getQuantity()}" pattern="#, ##0.00"/> $</td>
-                    <td>
-                        <a href="/food?action=edit&idFood=${food.id}"><img
-                                src="https://i.pinimg.com/736x/90/3f/e3/903fe3b2b3a404e8fa8f0e1a1dddc1be.jpg"
-                                width="30px"
-                                alt="Error"></a>
-                        <a href="/food?action=delete&idFood=${food.id}"><img
-                                src="https://i.pinimg.com/236x/a5/3c/28/a53c286dfdf33b31a0c7edf31fb5d67c.jpg"
-                                width="30px"
-                                alt="Error"></a>
-                    </td>
-                </tr>
-            </c:forEach>
-            </tbody>
-        </table>
-    </div>
-</div>
-</body>
-<footer>
+<header>
     <%
-        request.getRequestDispatcher("/view/setup/footer.jsp").include(request, response);
+        request.getRequestDispatcher("/view/admin/header.jsp").include(request, response);
     %>
+</header>
+<main>
+    <div class="table-container">
+        <div class="all">
+            <div class="div-search-add">
+                <div class="div-child">
+                    <form action="/food?action=search" method="post">
+                        <input type="text" name="keyword" placeholder="Tìm kiếm" width="300px">
+                        <input type="submit" value="Tìm kiếm">
+                    </form>
+                </div>
+                <div class="div-child div-right">
+                    <a href="/food" class="a-load"><img class="img-load"
+                                                        src="https://img.lovepik.com/free-png/20211201/lovepik-pink-two-way-arrow-png-image_401232107_wh1200.png"
+                                                        width="40px" alt="Error"></a>
+                    <a href="/food?action=add">
+                        <button class="button-add">&#10055; Thêm món</button>
+                    </a>
+                </div>
+
+            </div>
+            <div>
+                <table class="table">
+                    <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Hình ảnh</th>
+                        <th scope="col">Tên</th>
+                        <th scope="col">Mô tả</th>
+                        <th scope="col">Giá</th>
+                        <th scope="col">Số lượng</th>
+                        <th scope="col">Tổng giá</th>
+                        <th scope="col"></th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <c:forEach var="food" items="${foods}">
+                        <tr>
+                            <td>${food.getId()}</td>
+                            <td><img src="${food.getImageUrl()}" alt="Error" width="100px"></td>
+                            <td>${food.getName()}</td>
+                            <td>${food.getDescription()}</td>
+                            <td>${food.getPrice()} $</td>
+                            <td>${food.getQuantity()}</td>
+                            <td><fmt:formatNumber value="${food.getPrice() * food.getQuantity()}" pattern="#, ##0.00"/> $
+                            </td>
+                            <td>
+                                <a href="/food?action=edit&idFood=${food.id}"><img
+                                        src="https://i.pinimg.com/736x/90/3f/e3/903fe3b2b3a404e8fa8f0e1a1dddc1be.jpg"
+                                        width="30px"
+                                        alt="Error"></a>
+                                <a href="/food?action=delete&idFood=${food.id}"><img
+                                        src="https://i.pinimg.com/236x/a5/3c/28/a53c286dfdf33b31a0c7edf31fb5d67c.jpg"
+                                        width="30px"
+                                        alt="Error"></a>
+                            </td>
+                        </tr>
+                    </c:forEach>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</main>
+<footer>
+    <jsp:include page="footer.jsp"/>
 </footer>
+</body>
 </html>

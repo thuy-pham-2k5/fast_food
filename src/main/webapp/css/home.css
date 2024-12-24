@@ -1,10 +1,9 @@
 .all {
-    width: 900px;
+    width: 1200px;
     margin: 10px auto;
 }
-
 .table {
-    width: 900px; /* Thu nhỏ chiều rộng của bảng */
+    width: 1200px; /* Thu nhỏ chiều rộng của bảng */
     margin: auto; /* Căn giữa bảng */
     background-color: #ff0000; /* Màu nền đỏ cho Giáng sinh */
     color: #ffffff; /* Màu chữ trắng */
@@ -12,11 +11,16 @@
     border-radius: 8px;
     overflow: hidden;
 }
+.table-container {
+    max-height: 100%; /* Đặt chiều cao tối đa cho bảng */
+    overflow-y: auto; /* Kích hoạt cuộn dọc */
+    margin-top: 20px; /* Tùy chọn: thêm một chút khoảng cách phía trên bảng */
+}
 
 .table th, .table td {
     border: 1px solid #ddd; /* Viền cho các ô */
     padding: 8px; /* Khoảng cách bên trong ô */
-    text-align: center; /* Căn trái nội dung */
+    text-align: center; /* Căn giữa nội dung */
     vertical-align: middle;
 }
 
@@ -51,6 +55,7 @@ input[type="text"]:focus {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    padding-bottom: 10px;
 }
 
 .div-child {
@@ -82,7 +87,6 @@ form {
     transition: background-color 0.3s ease-in-out; /* Hiệu ứng chuyển đổi màu nền */
     display: inline-block; /* Sử dụng flexbox */
     align-items: center; /* Căn giữa nội dung theo chiều dọc */
-    margin-left: 0;
 }
 
 .img-load {
@@ -97,20 +101,10 @@ form {
 }
 
 button:hover {
-    background-color: #cc0000; /* Màu nền khi di chuột qua nút */
+    background-color: #cc0000;
 }
 
 .button-add img {
-    vertical-align: middle; /* Căn giữa hình ảnh theo chiều dọc */
-    margin-right: 8px; /* Khoảng cách giữa hình ảnh và chữ */
-}
-html, body {
-    height: 100%;
-    margin: 0;
-}
-
-.all {
-    min-height: calc(100vh - 100px); /* Adjust 100px to the height of your header and footer */
-    display: flex;
-    flex-direction: column;
+    vertical-align: middle;
+    margin-right: 8px;
 }

@@ -38,10 +38,6 @@
     --content-title-color: var(--theme-color);
 }
 
-html {
-    box-sizing: border-box;
-}
-
 body {
     font-family: var(--body-font);
     background-size: cover;
@@ -56,48 +52,9 @@ body {
     margin: 0;
 }
 
-
-.dark-light {
-    position: fixed;
-    bottom: 50px;
-    right: 30px;
-    background-color: var(--dropdown-bg);
-    box-shadow: -1px 3px 8px -1px rgba(0, 0, 0, 0.2);
-    z-index: 3;
-    cursor: pointer;
-}
-
-.dark-light svg {
-    width: 24px;
-    flex-shrink: 0;
-    fill: #ffce45;
-    stroke: #ffce45;
-    transition: 0.5s;
-}
-
-.light-mode .dark-light svg {
-    fill: transparent;
-    stroke: var(--theme-color);
-}
-
-
-body.light-mode:before,
-body.light-mode .video-bg:before {
-    content: "";
-    position: absolute;
-    left: 0;
-    top: 0;
-    right: 0;
-    width: 100%;
-    height: 100vh;
-    background: linear-gradient(180deg, rgba(255, 255, 255, 0.72) 0%, rgba(255, 255, 255, 0.45) 100%);
-    backdrop-filter: saturate(3);
-}
-
 .app {
-    background-color: #d20817;
+    background-color: #c95e5c;
     max-width: 1250px;
-    max-height: 60px;
     height: 60vh;
     display: flex;
     flex-direction: column;
@@ -105,7 +62,6 @@ body.light-mode .video-bg:before {
     position: relative;
     width: 100%;
     backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
     font-size: 15px;
     font-weight: 500;
 }
@@ -140,41 +96,21 @@ body.light-mode .video-bg:before {
     transition: 0.3s;
 }
 
-@media screen and (max-width: 610px) {
-    .header-menu a:not(.main-header-link) {
-        display: none;
-    }
-}
-
 .header-menu a.is-active,
 .header-menu a:hover {
     color: var(--theme-color);
-}
-
-
-@media screen and (max-width: 1055px) {
-    .notify {
-        display: none;
-    }
-}
-
-@media screen and (max-width: 945px) {
-    .menu-circle {
-        display: none;
-    }
 }
 
 .search-bar {
     height: 40px;
     display: flex;
     max-width: 400px;
-    padding-left: 100px;
     margin-left: 130px;
     border-radius: 4px;
 }
 
 .search-bar input {
-    width: 1500px;
+    width: 100%; /* Adjusted to utilize full width */
     height: 100%;
     border: none;
     border-radius: 4px;
@@ -188,24 +124,13 @@ body.light-mode .video-bg:before {
     background-repeat: no-repeat;
     background-position: 16px 48%;
 }
+
 .icon {
     width: 25px;
     height: 25px;
 }
+
 .header-menu-icon {
     display: flex;
     align-items: center;
 }
-.header-menu-icon a {
-    margin-left: 70%;
-    text-decoration: none;
-    color: var(--inactive-color);
-    border-bottom: 2px solid transparent;
-    transition: 0.3s;
-}
-.test {
-    max-height: 1000px;
-    color: black;
-}
-
-

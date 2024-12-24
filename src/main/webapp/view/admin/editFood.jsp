@@ -10,9 +10,10 @@
 <head>
     <meta charset="UTF-8">
     <title>Cập nhật thông tin món ăn</title>
+    <link rel="stylesheet" href="/css/feature.css">
 </head>
 <body>
-<div>
+<div class="form-container">
     <h2>Cập nhật thông tin món ăn</h2>
     <form action="/food?action=edit&id=${food.id}" method="post">
         <div class="mb-3">
