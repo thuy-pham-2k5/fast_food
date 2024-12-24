@@ -26,7 +26,6 @@ public class HomeServlet extends HttpServlet {
     }
 
     private void showHomeUserView(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        System.out.println("successful");
         req.getRequestDispatcher("/view/user/home.jsp").forward(req, resp);
     }
 }
