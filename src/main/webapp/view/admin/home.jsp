@@ -29,7 +29,7 @@
             <div class="div-child">
                 <form action="/food?action=search" method="post">
                     <input type="text" name="keyword" placeholder="Tìm kiếm" width="300px">
-                    <input type="submit">
+                    <input type="submit" value="Tìm kiếm">
                 </form>
             </div>
             <div class="div-child div-right">
@@ -82,9 +82,9 @@
             </table>
         </div>
     </div>
-    <footer>
-        <jsp:include page="footer.jsp"/>
-    </footer>
 </main>
+<footer>
+    <jsp:include page="footer.jsp"/>
+</footer>
 </body>
 </html>
