@@ -58,8 +58,8 @@
         <a href="#">Đơn hàng</a>
         <a href="#">Khách hàng</a>
         <div class="menu-icon">
-            <a href="#"><img src="${pageContext.request.contextPath}/image/user.png" alt="Error"></a>
-            <a href="#"><img src="${pageContext.request.contextPath}/image/exit.png" alt="Error"></a>
+            <a href="#"><img src="https://cdn.iconfinder.com/stored_data/2046281/128/png?token=1735098682-AjRD4kHEi3ua6X8wZPE3ew2EFwyDmVJeqGyoiMoaQv8%3D    " alt="Error"></a>
+            <a href="logout"><img src="https://cdn.iconfinder.com/stored_data/2046252/128/png?token=1735098591-sBbCIG%2FbufbHVTkg2e56mmgHxyvMCs8LJA2T0WoexfU%3D" alt="Error"></a>
         </div>
     </div>
 </div>
