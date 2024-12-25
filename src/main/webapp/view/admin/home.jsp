@@ -16,7 +16,6 @@
 <header>
     <jsp:include page="header.jsp"/>
 </header>
-
 <main>
     <div class="all">
         <div class="div-search-add">
