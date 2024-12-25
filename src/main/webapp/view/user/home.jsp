@@ -2,6 +2,7 @@
 <html>
 <head>
     <title>Title</title>
+    <link rel="stylesheet" href="/css/home-user.css">
 </head>
 <body>
 <jsp:include page="foodCard.jsp"/>
