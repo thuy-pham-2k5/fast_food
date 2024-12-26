@@ -37,8 +37,10 @@ public class HomeServlet extends HttpServlet {
         HttpSession session = req.getSession();
         List<Integer> cart = (ArrayList<Integer>) session.getAttribute("cart");
         int id = Integer.parseInt(req.getParameter("id"));
-
-        cart.add(id);
+        boolean isExisting = cart.stream().anyMatch(idFood -> idFood.equals(id));
+        if (!isExisting) {
+            cart.add(id);
+        }
         session.setAttribute("cart", cart);
         resp.sendRedirect("/home-user");
     }
