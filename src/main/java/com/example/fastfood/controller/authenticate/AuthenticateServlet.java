@@ -11,6 +11,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
 
 @WebServlet(value = "/authenticate")
 public class AuthenticateServlet extends HttpServlet {
@@ -41,11 +44,12 @@ public class AuthenticateServlet extends HttpServlet {
         String password = req.getParameter("password");
         User user = userService.login(phone, password);
         if (user != null) {
-            session.setAttribute("idUser", user.getId());
+            session.setAttribute("user", user);
             if (user.getStatus()) {
                 if (user.getRole().equals("admin")) {
                     resp.sendRedirect("food");
                 } else if (user.getRole().equals("user")) {
+                    session.setAttribute("cart", new ArrayList<Integer>());
                     resp.sendRedirect("home-user");
                 }
             } else {
