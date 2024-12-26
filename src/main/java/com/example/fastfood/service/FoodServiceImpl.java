@@ -42,6 +42,25 @@ public class FoodServiceImpl implements FoodService {
     }
 
     @Override
+    public Food getFoodByIdAndQuantity(int id, int quantity) {
+        String query = "select * from foods where id_food = ?";
+        try (Connection connection = ConnectDatabase.getConnection()) {
+            PreparedStatement preparedStatement = connection.prepareStatement(query);
+            preparedStatement.setInt(1, id);
+            ResultSet resultSet = preparedStatement.executeQuery();
+            if (resultSet.next()) {
+                String name = resultSet.getString("name");
+                double price = resultSet.getDouble("price");
+                String imageUrl = resultSet.getString("image_url");
+                return new Food(id, name, price, quantity, imageUrl);
+            } else {
+                return null;
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }    }
+
+    @Override
     public void add(Food food) {
         String query = "INSERT INTO foods (`name`, `description`, `price`, `quantity`, `image_url`, `type`) VALUES (?, ?, ?, ?, ?, ?)";
         try (Connection connection = ConnectDatabase.getConnection()) {

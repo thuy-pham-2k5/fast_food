@@ -23,7 +23,7 @@ document.querySelectorAll('.addToCart').forEach(function (button) {
             alertBox.style.display = 'none';
             overlay.style.display = 'none';
             form.submit();
-        }, 1000);
+        }, 500);
     });
 });
 

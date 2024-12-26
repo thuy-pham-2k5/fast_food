@@ -27,6 +27,14 @@ public class Food {
         this.type = type;
     }
 
+    public Food(int id, String name, double price, int quantity, String imageUrl) {
+        this.id = id;
+        this.quantity = quantity;
+        this.name = name;
+        this.imageUrl = imageUrl;
+        this.price = price;
+    }
+
     @Override
     public String toString() {
         return "Food{" +
