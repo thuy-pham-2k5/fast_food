@@ -25,6 +25,7 @@ public class UserServiceImpl implements UserService {
         }
     }
 
+
     @Override
     public User login(String phone, String password) {
         String query = "select * from users where phone = ? and password = ?";
@@ -61,6 +62,43 @@ public class UserServiceImpl implements UserService {
         } catch (SQLException e) {
             e.printStackTrace();
         }
+    }
+
+    @Override
+    public boolean updateStatusById(int userId, boolean newStatus) {
+
+        String query = "UPDATE users SET status = ? WHERE id_user = ?";
+
+        try (Connection connection = ConnectDatabase.getConnection()) {
+            PreparedStatement ps = connection.prepareStatement(query);
+
+
+            ps.setBoolean(1, newStatus);
+            ps.setInt(2, userId);
+
+            int rowsAffected = ps.executeUpdate();
+
+            return rowsAffected > 0;
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    @Override
+    public Boolean getStatusById(int id) {
+        String query = "SELECT status FROM users WHERE id_user = ?";
+        Boolean status = null;
+        try (Connection connection = ConnectDatabase.getConnection()) {
+            PreparedStatement ps = connection.prepareStatement(query);
+            ps.setInt(1, id);
+            ResultSet rs = ps.executeQuery();
+            if (rs.next()) {
+                status = rs.getBoolean("status");
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        return status;
     }
 
 }

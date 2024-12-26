@@ -51,6 +51,17 @@
 
         }
     </style>
+    <script>
+        function showAlert() {
+            var result = confirm("Are you sure you want to change the status?");
+            if (result) {
+                return true;
+            } else {
+                return false;
+            }
+        }
+    </script>
+
 </head>
 <body>
 <div class="table">
@@ -70,12 +81,12 @@
                 <td>${user.getPhone()}</td>
                 <td>${user.fullName}</td>
                 <td>
-                    <form action="/customer?action=changeStatus&id=${user.id}" method="post">
-                    <button type="submit" class="status-icon">
+                    <form action="/customer?action=changeStatus&id=${user.id}" method="post" onsubmit="return showAlert()">
+                        <button type="submit" class="status-icon">
                             <c:if test="${user.status == true}">
                                 <img src="https://cdn1.iconfinder.com/data/icons/warnings-and-dangers/400/Warning-02-512.png" alt="Active Status">
                             </c:if>
-                            <c:if test="${user.status != true}">
+                            <c:if test="${user.status == false}">
                                 <img src="https://cdn2.iconfinder.com/data/icons/web-and-apps-interface/32/Cancel-512.png" alt="Inactive Status">
                             </c:if>
                         </button>
