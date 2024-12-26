@@ -40,6 +40,7 @@ public class CartServlet extends HttpServlet {
             for (String id: foodIds) {
                 System.out.println(id);
             }
+            System.out.println(req.getSession().getAttribute("user"));
         }
 
     }
