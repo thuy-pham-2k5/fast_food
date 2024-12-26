@@ -18,6 +18,7 @@ import java.util.List;
 @WebServlet(value = "/home-user")
 public class HomeServlet extends HttpServlet {
     private final FoodService foodService = new FoodServiceImpl();
+
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         req.setCharacterEncoding("UTF-8");
@@ -36,6 +37,7 @@ public class HomeServlet extends HttpServlet {
         HttpSession session = req.getSession();
         List<Integer> cart = (ArrayList<Integer>) session.getAttribute("cart");
         int id = Integer.parseInt(req.getParameter("id"));
+
         cart.add(id);
         session.setAttribute("cart", cart);
         resp.sendRedirect("/home-user");
