@@ -38,7 +38,6 @@ public class HomeServlet extends HttpServlet {
         int id = Integer.parseInt(req.getParameter("id"));
         cart.add(id);
         session.setAttribute("cart", cart);
-        session.setAttribute("message", "Đã thêm vào giỏ hàng thành công");
         resp.sendRedirect("/home-user");
     }
 

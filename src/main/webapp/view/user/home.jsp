@@ -13,7 +13,6 @@
     <link rel="stylesheet" href="/css/home-user.css">
 </head>
 <body>
-
 <div>
     <c:forEach var="food" items="${foods}">
         <jsp:include page="foodCard.jsp">
