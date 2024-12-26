@@ -20,14 +20,28 @@ public class CartServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        String action = req.getParameter("action");
+        if (action==null) action="";
+        switch (action) {
+            case "order":
+                orderFood (req, resp);
+                break;
+            default:
+                break;
+        }
+    }
+
+    private void orderFood(HttpServletRequest req, HttpServletResponse resp) {
         String[] foodIds = req.getParameterValues("foodId");
-        if (foodIds!=null) {
+        if (foodIds==null || foodIds.length==0) {
+            System.out.println("No food selected");
+        }
+        else {
             for (String id: foodIds) {
                 System.out.println(id);
             }
-        } else {
-            System.out.println("No food selected");
         }
+
     }
 
     @Override
