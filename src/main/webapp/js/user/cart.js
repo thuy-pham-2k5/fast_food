@@ -9,24 +9,31 @@ document.getElementById('checkbox').addEventListener('change', function () {
 
 document.getElementById("orderButton").addEventListener("click", function (){
     const rows = document.querySelectorAll('table tr');
-    const selectedIds = [];
+    const selectedItems = new Map();
     rows.forEach(function (row) {
         const checkbox = row.querySelector('.checkbox');
         if (checkbox && checkbox.checked) {
             const foodId = row.querySelector('.foodId').innerText;
-            selectedIds.push(foodId);
+            const foodQuantity = row.querySelector('.quantity').value;
+            selectedItems.set(foodId, foodQuantity);
         }
     });
-    if (selectedIds.length>0) {
+    if (selectedItems.size>0) {
         const form = document.createElement('form');
         form.method = 'POST';
         form.action = '/cart-user?action=order';
-        selectedIds.forEach(function (id) {
-            const input = document.createElement('input');
-            input.type = 'hidden';
-            input.name = 'foodId';
-            input.value = id;
-            form.appendChild(input);
+        selectedItems.forEach(function (quantity, id) {
+            const inputId = document.createElement('input');
+            inputId.type = 'hidden';
+            inputId.name = 'foodId';
+            inputId.value = id;
+            form.appendChild(inputId);
+
+            const inputQuantity = document.createElement('input');
+            inputQuantity.type = 'hidden';
+            inputQuantity.name = 'foodQuantity';
+            inputQuantity.value = quantity;
+            form.appendChild(inputQuantity);
         })
         document.body.appendChild(form);
         form.submit();
