@@ -33,12 +33,16 @@ public class CartServlet extends HttpServlet {
 
     private void orderFood(HttpServletRequest req, HttpServletResponse resp) {
         String[] foodIds = req.getParameterValues("foodId");
-        if (foodIds==null || foodIds.length==0) {
+        String[] foodQuantities = req.getParameterValues("foodQuantity");
+        if ((foodIds==null && foodQuantities==null) || (foodIds.length==0 && foodQuantities.length==0)) {
             System.out.println("No food selected");
         }
         else {
             for (String id: foodIds) {
-                System.out.println(id);
+                System.out.println("idFood: " + id);
+            }
+            for (String quantity: foodQuantities) {
+                System.out.println("quantity: " + quantity);
             }
             System.out.println(req.getSession().getAttribute("user"));
         }
