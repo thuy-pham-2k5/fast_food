@@ -8,51 +8,73 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <style>
     .food-card {
-        padding: 8px;
+        padding: 8px 8px;
+        margin: 0;
+        display: inline-flex;
     }
+
     .food-card a {
         border-radius: 8px;
-        box-shadow: #ff0030;
+        position: relative;
+        transition: box-shadow 0.3s ease, transform 0.3s ease;
     }
-    .image-inform {
+
+    .food-card a:hover {
+        box-shadow: 0 5px 7px rgba(255, 0, 48, 0.2);
+        transform: scale(1.05);
+    }
+
+    .food-card-image {
         width: 185px;
         height: 135px;
-        border: 1px solid lightgray;
-        border-radius: 8px;
         overflow: hidden;
         position: relative;
+        border-radius: 8px 8px 0 0;
+        border: 1px solid lightgray;
     }
-    .image-inform img {
+
+    .food-card-image img {
         position: absolute;
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
     }
-    .card-inform {
-        border-radius: 0 0 6px 6px;
+
+    .food-card-inform {
+        width: 185px;
+        border-radius: 0 0 8px 8px;
+        border: 1px solid lightgray;
     }
-    .food-inform {
+
+    .food-card-inform p, form {
+        margin: 0;
         padding: 5px 8px;
     }
+
+    .food-card-inform p {
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    .food-card-inform form {
+        display: flex;
+        justify-content: flex-end;
+    }
+
 </style>
+
 <div class="food-card">
     <a>
-        <div class="image-inform">
-            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSp6XfRxRsU9LAfnSU9WLcG6MA0BT3Fl4_DQg&s"
-                 alt="Error">
+        <div class="food-card-image">
+            <img src="${param.foodImage}" alt="Error">
         </div>
-        <div class="card-inform">
-            <div class="food-inform">
-
-            </div>
-            <div class="add-cart">
-
-            </div>
+        <div class="food-card-inform">
+            <p>${param.foodName}</p>
+            <p>${param.foodPrice}</p>
+            <form action="/home-user?action=addToCart&id=${param.foodId}" method="post">
+                <button>Thêm vào giỏ</button>
+            </form>
         </div>
     </a>
-</div>
-<div style="width: 200px; height: 200px; background-color: lightblue; position: relative;">
-    <div style="width: 50px; height: 50px; background-color: red; position: absolute; top: 10px; left: 10px;">
-        Tôi là phần tử con
-    </div>
 </div>
