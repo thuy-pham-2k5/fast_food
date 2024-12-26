@@ -30,6 +30,18 @@ public class User {
         this.fullName = fullName;
     }
 
+    public User(int id, String phone, String password, String fullName, Boolean status) {
+        this.id = id;
+        this.phone = phone;
+        this.password = password;
+        this.fullName = fullName;
+        this.status = status;
+    }
+
+    public User() {
+
+    }
+
     @Override
     public String toString() {
         return "User{" +
