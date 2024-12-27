@@ -12,4 +12,6 @@ public interface FoodService {
     void update (int id, Food food);
     void delete (int id);
     List<Food> searchByName (String keyword);
+    List<Food> getFoodByIdUserAndIdOrder(int idUser, int idOrder);
+
 }

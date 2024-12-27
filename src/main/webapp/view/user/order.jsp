@@ -82,13 +82,20 @@
                 <th>Tổng thanh toán</th>
                 <th>Trạng thái thanh toán</th>
                 <th>Trạng thái đơn</th>
+                <th></th>
             </tr>
             <c:forEach var="order" items="${orders}">
-                <td>${order.idOrder}</td>
-                <td>${order.orderTime}</td>
-                <td>${order.totalFood}</td>
-                <td>${order.amount}</td>
-                <td>${order.orderStatus}</td>
+                <tr>
+                    <td>${order.idOrder}</td>
+                    <td>${order.orderTime}</td>
+                    <td>${order.totalFood}</td>
+                    <td>${order.amount}</td>
+                    <td>${order.paymentStatus}</td>
+                    <td>${order.orderStatus}</td>
+                    <td><a href="/order-user?action=inform&idOrder=${order.idOrder}">
+                        <button>Chi tiết đơn</button>
+                    </a></td>
+                </tr>
             </c:forEach>
         </table>
     </div>
