@@ -67,9 +67,9 @@
 <div class="menu">
     <div class="menu-button">
         <a href="/home-user" ><img style="border-radius: 50%" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTlERRYmFAppRLJUU7Ki5EMSqOnDXCtW8FrgA&s"></a>
-        <a href="#">Gà tây,bò hầm</a>
-        <a href="#">Bánh kem</a>
-        <a href="#">Kẹo</a>
+        <a href="/home-user?action=searchType&type=a">Gà tây, Bò hầm</a>
+        <a href="/home-user?action=searchType&type=b">Bánh kem</a>
+        <a href="/home-user?action=searchType&type=c">Kẹo</a>
         <div class="menu-icon">
             <form action="/home-user?action=search" method="post">
                 <input type="text" name="keyword" placeholder="Tìm kiếm">
