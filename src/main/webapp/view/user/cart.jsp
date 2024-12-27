@@ -6,7 +6,89 @@
     <title>[Xmas]Giỏ hàng</title>
     <script src="/js/user/cart.js" defer></script>
 </head>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f9f9f9;
+        margin: 0;
+    }
+
+    main {
+        max-width: 1200px;
+        margin: auto;
+        background: white;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    h1 {
+        text-align: center;
+        color: #333;
+    }
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-bottom: 20px;
+    }
+
+    th, td {
+        padding: 10px;
+        text-align: left;
+        border-bottom: 1px solid #ddd;
+    }
+
+    th {
+        background-color: #3d8f30;
+        -webkit-text-fill-color: #ffffff;
+    }
+
+    td img {
+        border-radius: 4px;
+    }
+
+    .checkbox {
+        cursor: pointer;
+    }
+
+    .quantity {
+        width: 60px;
+        padding: 5px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+    }
+
+    button {
+        background-color: #4CAF50;
+        color: white;
+        border: none;
+        padding: 10px 15px;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+
+    button:hover {
+        background-color: #45a049;
+    }
+
+    #checkbox {
+        cursor: pointer;
+    }
+
+    span {
+        font-weight: bold;
+    }
+
+    #orderButton {
+        margin-top: 10px;
+        height: 20px;
+    }
+</style>
 <body>
+<header>
+    <jsp:include page="header.jsp"/>
+</header>
 <main>
     <div>
         <c:if test="${foods!=null}">
