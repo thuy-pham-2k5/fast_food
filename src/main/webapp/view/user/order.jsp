@@ -5,74 +5,68 @@
     <meta charset="UTF-8">
     <title>Đơn hàng của bạn</title>
 </head>
-<style>
-    body {
-        font-family: Arial, sans-serif;
-        background-color: #f9f9f9;
-        margin: 0;
-        padding: 20px;
-    }
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            margin: 0;
+        }
+        main {
+            max-width: 1200px;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            margin: 10px auto;
+        }
 
-    main {
-        max-width: 1200px;
-        margin: auto;
-        background: white;
-        padding: 20px;
-        border-radius: 8px;
-        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    }
+        h1 {
+            text-align: center;
+            color: #333;
+        }
 
-    h1 {
-        text-align: center;
-        color: #333;
-    }
+        button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 5px;
+        }
 
-    button {
-        background-color: #4CAF50;
-        color: white;
-        border: none;
-        padding: 10px 15px;
-        border-radius: 5px;
-        cursor: pointer;
-        margin: 5px;
-    }
+        button:hover {
+            background-color: #45a049;
+        }
 
-    button:hover {
-        background-color: #45a049;
-    }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
 
-    table {
-        width: 100%;
-        border-collapse: collapse;
-        margin-top: 20px;
-    }
+        th, td {
+            padding: 10px;
+            border-bottom: 1px solid #ddd;
+        }
 
-    th, td {
-        padding: 10px;
-        text-align: left;
-        border-bottom: 1px solid #ddd;
-    }
+        th {
+            background-color: #f2f2f2;
+        }
 
-    th {
-        background-color: #f2f2f2;
-    }
-
-    tr:hover {
-        background-color: #f5f5f5;
-    }
-
-    td {
-        color: #555;
-    }
-</style>
+        td {
+            text-align: center;
+            color: #555;
+        }
+        tr:hover {
+            background-color: #f5f5f5;
+        }
+    </style>
 <body>
+<header>
+    <jsp:include page="header.jsp"/>
+</header>
 <main>
-    <div>
-        <button>Chờ giao</button>
-        <button>Đang giao</button>
-        <button>Đã giao</button>
-        <button>Hủy đơn</button>
-    </div>
     <div>
         <table>
             <tr>

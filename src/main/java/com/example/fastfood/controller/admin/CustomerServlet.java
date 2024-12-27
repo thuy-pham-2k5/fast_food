@@ -64,6 +64,11 @@ public class CustomerServlet extends HttpServlet {
     }
     private void showListCustomer(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         List<User> users = customerService.getAllListCustomer();
+        if (users!=null) {
+            System.out.println(users);
+        } else {
+            System.out.println("null");
+        }
         request.setAttribute("users", users);
         RequestDispatcher dispatcher = request.getRequestDispatcher("/view/admin/customer.jsp");
         dispatcher.forward(request, response);

@@ -8,7 +8,6 @@
             font-family: Arial, sans-serif;
             background-color: #f4f4f4;
             margin: 0;
-            padding: 20px;
         }
 
         .table {
@@ -47,10 +46,12 @@
         tr:hover{
             background-color: #f1f1f1;
             border-color: #f1f1f1;
-
+        }
+        footer {
+            margin: 0 auto;
         }
     </style>
-    <script>
+    <script defer>
         function showAlert() {
             var result = confirm("Are you sure you want to change the status?");
             if (result) {
@@ -62,38 +63,46 @@
     </script>
 </head>
 <body>
-<div class="table">
-    <table>
-        <thead>
-        <tr>
-            <th>ID</th>
-            <th>Phone</th>
-            <th>Full Name</th>
-            <th>Status</th>
-        </tr>
-        </thead>
-        <tbody>
-        <c:forEach var="user" items="${users}">
+<header>
+    <jsp:include page="header.jsp"></jsp:include>
+</header>
+<main>
+    <div class="table">
+        <table>
+            <thead>
             <tr>
-                <td>${user.getId()}</td>
-                <td>${user.getPhone()}</td>
-                <td>${user.fullName}</td>
-                <td>
-                    <form action="/customer?action=changeStatus&id=${user.id}" method="post" onsubmit="return showAlert()">
-                        <button type="submit" class="status-icon">
-                            <c:if test="${user.status == true}">
-                                <img src="https://cdn1.iconfinder.com/data/icons/warnings-and-dangers/400/Warning-02-512.png" alt="Active Status">
-                            </c:if>
-                            <c:if test="${user.status == false}">
-                                <img src="https://cdn2.iconfinder.com/data/icons/web-and-apps-interface/32/Cancel-512.png" alt="Inactive Status">
-                            </c:if>
-                        </button>
-                    </form>
-                </td>
+                <th>ID</th>
+                <th>Phone</th>
+                <th>Full Name</th>
+                <th>Status</th>
             </tr>
-        </c:forEach>
-        </tbody>
-    </table>
-</div>
+            </thead>
+            <tbody>
+            <c:forEach var="user" items="${users}">
+                <tr>
+                    <td>${user.getId()}</td>
+                    <td>${user.getPhone()}</td>
+                    <td>${user.fullName}</td>
+                    <td>
+                        <form action="/customer?action=changeStatus&id=${user.id}" method="post" onsubmit="return showAlert()">
+                            <button type="submit" class="status-icon">
+                                <c:if test="${user.status == true}">
+                                    <img src="https://cdn1.iconfinder.com/data/icons/warnings-and-dangers/400/Warning-02-512.png" alt="Active Status">
+                                </c:if>
+                                <c:if test="${user.status == false}">
+                                    <img src="https://cdn2.iconfinder.com/data/icons/web-and-apps-interface/32/Cancel-512.png" alt="Inactive Status">
+                                </c:if>
+                            </button>
+                        </form>
+                    </td>
+                </tr>
+            </c:forEach>
+            </tbody>
+        </table>
+    </div>
+</main>
+<footer>
+    <jsp:include page="footer.jsp"></jsp:include>
+</footer>
 </body>
 </html>

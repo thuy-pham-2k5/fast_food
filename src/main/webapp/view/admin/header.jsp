@@ -53,13 +53,12 @@
 </style>
 <div class="menu">
     <div class="menu-button">
-        <a href="#" ><img style="border-radius: 50%" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTlERRYmFAppRLJUU7Ki5EMSqOnDXCtW8FrgA&s"></a>
-        <a href="#">Món ăn</a>
+        <a href="/food" ><img style="border-radius: 50%" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTlERRYmFAppRLJUU7Ki5EMSqOnDXCtW8FrgA&s"></a>
+        <a href="/food">Món ăn</a>
         <a href="#">Đơn hàng</a>
-        <a href="/view/admin/customer.jsp">Khách hàng</a>
+        <a href="/customer">Khách hàng</a>
         <div class="menu-icon">
-            <a href="#"><img src="https://cdn.iconfinder.com/stored_data/2046281/128/png?token=1735098682-AjRD4kHEi3ua6X8wZPE3ew2EFwyDmVJeqGyoiMoaQv8%3D    " alt="Error"></a>
-            <a href="logout"><img src="https://cdn.iconfinder.com/stored_data/2046252/128/png?token=1735098591-sBbCIG%2FbufbHVTkg2e56mmgHxyvMCs8LJA2T0WoexfU%3D" alt="Error"></a>
+            <a href="logout"><img src="https://cdn.iconfinder.com/stored_data/2048435/128/png?token=1735279709-P96OUD6xa8ZSxSoSJDrkKxBjXbX9bZCjkIFs%2FhjXSJM%3D" alt="Error"></a>
         </div>
     </div>
 </div>
