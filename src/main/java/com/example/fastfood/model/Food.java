@@ -5,8 +5,18 @@ public class Food {
     private String name, description;
     private double price;
     private int quantity;
-    private String imageUrl, type;
+    private String imageUrl, type, orderStatus;
 
+    public Food(int id, String name, String description, double price, int quantity, String imageUrl, String type, String orderStatus) {
+        this.id = id;
+        this.name = name;
+        this.description = description;
+        this.price = price;
+        this.quantity = quantity;
+        this.imageUrl = imageUrl;
+        this.type = type;
+        this.orderStatus = orderStatus;
+    }
 
     public Food(int id, String name, String description, double price, int quantity, String imageUrl, String type) {
         this.id = id;
@@ -46,6 +56,14 @@ public class Food {
                 ", imageUrl='" + imageUrl + '\'' +
                 ", type='" + type + '\'' +
                 '}';
+    }
+
+    public String getOrderStatus() {
+        return orderStatus;
+    }
+
+    public void setOrderStatus(String orderStatus) {
+        this.orderStatus = orderStatus;
     }
 
     public int getId() {

@@ -58,7 +58,8 @@ public class FoodServiceImpl implements FoodService {
             }
         } catch (SQLException e) {
             throw new RuntimeException(e);
-        }    }
+        }
+    }
 
     @Override
     public void add(Food food) {
@@ -117,6 +118,32 @@ public class FoodServiceImpl implements FoodService {
             ResultSet resultSet = callableStatement.executeQuery();
             while (resultSet.next()) {
                 foods.add(getFoodInDatabase(resultSet));
+            }
+            return foods;
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    @Override
+    public List<Food> getFoodByIdUserAndIdOrder(int idUser, int idOrder) {
+        String query = "{CALL getFoodByIdUserAndIdOrder (?,?)}";
+        List<Food> foods = new ArrayList<>();
+        try (Connection connection = ConnectDatabase.getConnection()) {
+            CallableStatement callableStatement = connection.prepareCall(query);
+            callableStatement.setInt(1, idUser);
+            callableStatement.setInt(2, idOrder);
+            ResultSet resultSet = callableStatement.executeQuery();
+            while (resultSet.next()) {
+                int id = resultSet.getInt("id_food");
+                String name = resultSet.getString("name");
+                String description = resultSet.getString("description");
+                double price = resultSet.getDouble("price");
+                int quantity = resultSet.getInt("quantity");
+                String imageUrl = resultSet.getString("image_url");
+                String type = resultSet.getString("type");
+                String statusOrder = resultSet.getString("order_status");
+                foods.add(new Food(id, name, description, price, quantity, imageUrl, type, statusOrder));
             }
             return foods;
         } catch (SQLException e) {

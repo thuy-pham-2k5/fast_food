@@ -21,6 +21,19 @@ public class Order {
         this.foodQuantites = foodQuantites;
     }
 
+    public Order(int idOrder, int idUser, String orderTime, String deliveryAddress, String orderStatus, double amount, int totalFood, String paymentStatus, String paymentTime) {
+        this.idOrder = idOrder;
+        this.idUser = idUser;
+        this.orderTime = orderTime;
+        this.deliveryAddress = deliveryAddress;
+        this.orderStatus = orderStatus;
+        this.amount = amount;
+        this.totalFood = totalFood;
+        this.paymentStatus = paymentStatus;
+        this.paymentTime = paymentTime;
+
+    }
+
     public Order (int idUser, String deliveryAddress, String paymentStatus, String paymentTime, String foodIds, String foodQuantites) {
         this.idUser = idUser;
         this.deliveryAddress = deliveryAddress;
