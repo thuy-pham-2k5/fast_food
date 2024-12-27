@@ -3,11 +3,17 @@
 
 <style>
     .site-footer {
-        padding-top: 16px;
+        padding: 2px;
         text-align: center;
+        justify-content: center;
         background-color: #26693b;
         font-size: 15px;
         color: #ffffff;
+    }
+    .copyright-text {
+        display: flex;
+        justify-content: center;
+        margin: 4px;
     }
 </style>
 <div class="row site-footer">
