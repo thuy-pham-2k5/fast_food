@@ -8,7 +8,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <style>
     .food-card {
-        padding: 8px 8px;
+        padding: 12px 12px;
         margin: 0;
         display: inline-flex;
     }
