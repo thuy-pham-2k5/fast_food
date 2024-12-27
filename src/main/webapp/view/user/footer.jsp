@@ -3,7 +3,7 @@
 
 <style>
     .site-footer {
-        padding-top: 16px;
+        padding: 2px;
         text-align: center;
         background-color: #26693b;
         font-size: 15px;

@@ -27,10 +27,22 @@ public class HomeServlet extends HttpServlet {
         String action = req.getParameter("action");
         if (action == null) action = "";
         switch (action) {
+            case "search":
+                searchByName(req, resp);
+                break;
             case "addToCart":
                 addToCart(req, resp);
                 break;
         }
+    }
+
+    private void searchByName(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        String keyword = req.getParameter("keyword");
+        HttpSession session = req.getSession();
+        session.setAttribute("keyword", keyword);
+        req.setAttribute("foods", foodService.searchByName(keyword));
+        RequestDispatcher dispatcher = req.getRequestDispatcher("/view/user/home.jsp");
+        dispatcher.forward(req, resp);
     }
 
     private void addToCart(HttpServletRequest req, HttpServletResponse resp) throws IOException {
