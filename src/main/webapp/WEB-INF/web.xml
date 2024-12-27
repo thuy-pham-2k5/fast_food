@@ -16,6 +16,6 @@
 <!--        <welcome-file>cart-user</welcome-file>-->
 <!--    </welcome-file-list>-->
     <welcome-file-list>
-        <welcome-file>view/user/cart.jsp</welcome-file>
+        <welcome-file>order-user</welcome-file>
     </welcome-file-list>
 </web-app>
