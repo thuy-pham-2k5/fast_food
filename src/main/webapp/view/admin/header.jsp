@@ -58,6 +58,7 @@
         <a href="#">Đơn hàng</a>
         <a href="/customer">Khách hàng</a>
         <div class="menu-icon">
+            <a href="/view/admin/account.jsp"><img src="https://cdn.iconfinder.com/stored_data/2046281/128/png?token=1735279772-Z9RCNv7GoH%2F1XzEkqbtL9AbWBAKRlobNtXwJKv1wNow%3D"></a>
             <a href="logout"><img src="https://cdn.iconfinder.com/stored_data/2048435/128/png?token=1735279709-P96OUD6xa8ZSxSoSJDrkKxBjXbX9bZCjkIFs%2FhjXSJM%3D" alt="Error"></a>
         </div>
     </div>

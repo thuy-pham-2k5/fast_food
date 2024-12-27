@@ -74,7 +74,7 @@
             <form action="/home-user?action=search" method="post">
                 <input type="text" name="keyword" placeholder="Tìm kiếm">
                 <button type="submit">
-                    <img src="https://cdn.iconfinder.com/stored_data/2047535/128/png?token=1735210197-riA83owJKKYunY7RL%2F0NOVXONHhGaEX2S%2FlCZd06vyY%3D" alt="Tìm kiếm">
+                    <img src="https://cdn.iconfinder.com/stored_data/2047535/128/png?token=1735210197-riA83owJKKYunY7RL%2F0NOVXONHhGaEX2S%2FlCZd06vyY%3D" alt="Tìm kiếm" >
                 </button>
             </form>
             <a href="/view/user/account.jsp"><img src="https://cdn.iconfinder.com/stored_data/2046281/128/png?token=1735279772-Z9RCNv7GoH%2F1XzEkqbtL9AbWBAKRlobNtXwJKv1wNow%3D"></a>
