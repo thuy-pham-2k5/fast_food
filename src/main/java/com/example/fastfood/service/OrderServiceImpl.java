@@ -20,7 +20,11 @@ public class OrderServiceImpl implements OrderService {
             CallableStatement callableStatement = connection.prepareCall(query);
             callableStatement.setInt(1, idUser);
             callableStatement.setString(2, deliveryAddress);
-            callableStatement.setString(3, paymentStatus);
+            if (paymentStatus.equals("paid")) {
+                callableStatement.setString(3, "Đã thanh toán");
+            } else if (paymentStatus.equals("unpaid")) {
+                callableStatement.setString(3, "Chưa thanh toán");
+            }
             callableStatement.setString(4, paymentTime);
             callableStatement.setString(5, foodIds);
             callableStatement.setString(6, foodQuantites);

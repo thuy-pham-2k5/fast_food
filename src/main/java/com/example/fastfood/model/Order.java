@@ -17,6 +17,14 @@ public class Order {
         this.foodQuantites = foodQuantites;
     }
 
+    public Order(int idOrder, String orderTime, String orderStatus, double amount, int totalFood) {
+        this.idOrder = idOrder;
+        this.orderTime = orderTime;
+        this.orderStatus = orderStatus;
+        this.amount = amount;
+        this.totalFood = totalFood;
+    }
+
     @Override
     public String toString() {
         return "OrderServlet{" +
