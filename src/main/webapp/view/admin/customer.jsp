@@ -40,12 +40,11 @@
             height: 35px;
         }
         .status-icon {
-            background-color: #ffffff;
-            border: 1px solid #ffffff;
+            border: none;
+            background: transparent;
             height: 20px;
         }
-        tr:hover,
-        .status-icon:hover{
+        tr:hover{
             background-color: #f1f1f1;
             border-color: #f1f1f1;
 

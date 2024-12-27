@@ -9,7 +9,7 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>[Xmas]Food </title>
     <link rel="stylesheet" href="/css/home-user.css">
 </head>
 <body>
@@ -26,6 +26,9 @@
         </jsp:include>
     </c:forEach>
 </div>
+<footer>
+    <jsp:include page="footer.jsp"/>
+</footer>
 </body>
 </html>
 
