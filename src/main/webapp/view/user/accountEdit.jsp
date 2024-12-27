@@ -15,22 +15,23 @@
     <jsp:include page="header.jsp"/>
 </header>
 <div class="form-container">
-    <h2>Thông tin tài khoản</h2>
-    <form action="/account" method="get">
+    <h2>Cập nhật thông tin tài khoản</h2>
+    <form action="/account?action=edit" method="post">
         <div class="mb-3">
             <label for="exampleInputEmail1" class="form-label">Họ tên</label>
-            <input value="${sessionScope.user.fullName}" readonly name="name" required type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+            <input value="${sessionScope.user.fullName}" name="name" required type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
         </div>
         <div class="mb-3">
             <label for="exampleInputPassword1" class="form-label">Số điện thoại</label>
-            <input value="${sessionScope.user.phone}" name="phone" readonly type="text" class="form-control" id="exampleInputPassword1">
+            <input value="${sessionScope.user.phone}" name="phone" required type="text" class="form-control" id="exampleInputPassword1">
         </div>
         <div class="mb-3">
             <label for="exampleInputPassword2" class="form-label">Trạng thái tài khoản</label>
-            <input value="Đang hoạt động" readonly name="status" type="text" class="form-control" id="exampleInputPassword2">
+            <input value="Đang hoạt động" readonly name="status" required type="text" class="form-control" id="exampleInputPassword2">
         </div>
-        <a href="/account?action=edit"><button type="submit" class="btn btn-primary">Cập nhật tài khoản</button></a>
+        <button type="submit" class="btn btn-primary">Cập nhật</button>
     </form>
 </div>
 </body>
 </html>
+
