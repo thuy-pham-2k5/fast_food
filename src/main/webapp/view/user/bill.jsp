@@ -12,6 +12,7 @@
         margin: 0;
     }
     main {
+        padding: 15px;
         max-width: 1200px;
         margin: auto;
         background: white;
@@ -23,7 +24,8 @@
         color: #333;
     }
     p {
-        margin: 5px 0;
+        margin: 15px 0;
+
     }
 
     label {
@@ -32,7 +34,7 @@
     }
 
     input[type="text"] {
-        width: 100%;
+        width: 30%;
         padding: 8px;
         border: 1px solid #ccc;
         border-radius: 4px;
@@ -46,13 +48,12 @@
 
     table {
         width: 100%;
-        border-collapse: collapse;
         margin-top: 20px;
+        border-collapse: separate;
     }
-
     th, td {
         padding: 10px;
-        border: 1px solid #ddd; /* Added border for separation */
+        border: 1px solid #ddd;
     }
 
     th {
@@ -88,7 +89,10 @@
         font-weight: bold;
     }
     .buy {
-      margin-left: 800px;
+      margin-left: 850px;
+    }
+    #amount {
+        -webkit-text-fill-color: red;
     }
 </style>
 <body>
