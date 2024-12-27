@@ -1,5 +1,5 @@
 .all {
-    width: 1200px;
+    width: 1400px;
     margin: 10px auto;
 }
 body{
@@ -7,7 +7,7 @@ body{
     padding: 0;
 }
 .table {
-    width: 1200px; /* Thu nhỏ chiều rộng của bảng */
+    width: 1400px; /* Thu nhỏ chiều rộng của bảng */
     margin: 10px auto; /* Căn giữa bảng */
     background-color: #ff0000; /* Màu nền đỏ cho Giáng sinh */
     color: #ffffff; /* Màu chữ trắng */

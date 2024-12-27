@@ -71,7 +71,7 @@
         </div>
         <div class="food-card-inform">
             <p>${param.foodName}</p>
-            <p>${param.foodPrice}</p>
+            <p>${param.foodPrice} $</p>
             <form action="/home-user?action=addToCart&id=${param.foodId}" method="post">
                 <button class="addToCart" data-food-id="${param.foodId}">Thêm vào giỏ</button>
             </form>

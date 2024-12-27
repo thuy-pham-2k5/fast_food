@@ -65,10 +65,26 @@ public class HomeServlet extends HttpServlet {
         String action = req.getParameter("action");
         if (action == null) action = "";
         switch (action) {
+            case "searchType":
+                searchByTypeFood (req, resp);
+                break;
             default:
                 showHomeUserView(req, resp);
                 break;
         }
+    }
+    private void searchByTypeFood(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        String type = req.getParameter("type");
+        if (type.equals("a")) {
+            type = "Gà tây, Bò hầm";
+        } else if (type.equals("b")) {
+            type = "Bánh kem";
+        } else if (type.equals("c")) {
+            type = "Kẹo";
+        }
+        req.setAttribute("foods", foodService.searchByType(type));
+        RequestDispatcher dispatcher = req.getRequestDispatcher("/view/user/home.jsp");
+        dispatcher.forward(req, resp);
     }
 
     private void showHomeUserView(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {

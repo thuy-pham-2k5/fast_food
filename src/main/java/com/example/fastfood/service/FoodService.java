@@ -13,5 +13,6 @@ public interface FoodService {
     void delete (int id);
     List<Food> searchByName (String keyword);
     List<Food> getFoodByIdUserAndIdOrder(int idUser, int idOrder);
+    List<Food> searchByType (String type);
 
 }

@@ -151,6 +151,23 @@ public class FoodServiceImpl implements FoodService {
         }
     }
 
+    @Override
+    public List<Food> searchByType(String type) {
+        String query = "select * from foods where type = ?";
+        List<Food> foods = new ArrayList<>();
+        try (Connection connection = ConnectDatabase.getConnection()) {
+            PreparedStatement preparedStatement = connection.prepareStatement(query);
+            preparedStatement.setString(1, type);
+            ResultSet resultSet = preparedStatement.executeQuery();
+            while (resultSet.next()) {
+                foods.add(getFoodInDatabase(resultSet));
+            }
+            return foods;
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
     private Food getFoodInDatabase(ResultSet resultSet) throws SQLException {
         int id = resultSet.getInt("id_food");
         String name = resultSet.getString("name");
