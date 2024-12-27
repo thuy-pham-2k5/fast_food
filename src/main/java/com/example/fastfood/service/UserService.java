@@ -13,4 +13,5 @@ public interface UserService {
     void registerUser(String phone , String password , String fullName);
 
     boolean updateStatusById(int userId, boolean newStatus);
+    User updateUserById (int idUser);
 }

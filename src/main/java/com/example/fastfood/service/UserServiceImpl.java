@@ -2,6 +2,7 @@ package com.example.fastfood.service;
 
 import com.example.fastfood.database.ConnectDatabase;
 import com.example.fastfood.model.User;
+import com.sun.security.auth.UnixNumericGroupPrincipal;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.http.*;
@@ -101,6 +102,24 @@ public class UserServiceImpl implements UserService {
             int rowsAffected = ps.executeUpdate();
 
             return rowsAffected > 0;
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    @Override
+    public User updateUserById(int idUser) {
+        String query = "select * from users where id_user = ?";
+        try (Connection connection = ConnectDatabase.getConnection()) {
+            PreparedStatement preparedStatement = connection.prepareStatement(query);
+            preparedStatement.setInt(1, idUser);
+            ResultSet resultSet = preparedStatement.executeQuery();
+            if (resultSet.next()) {
+                String phone = resultSet.getString("phone");
+                String fullName = resultSet.getString("full_name");
+                return new User(idUser, phone, fullName);
+            } else
+                return null;
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
