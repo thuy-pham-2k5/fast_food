@@ -12,6 +12,28 @@ import java.sql.SQLException;
 
 public class UserServiceImpl implements UserService {
     @Override
+    public User getUserById(int id) {
+        String query = "select * from users where id = ?";
+        User user = null;
+        try (Connection connection = ConnectDatabase.getConnection()) {
+            PreparedStatement preparedStatement = connection.prepareStatement(query);
+            preparedStatement.setInt(1, id);
+            ResultSet resultSet = preparedStatement.executeQuery();
+            if (resultSet.next()) {
+                String phone = resultSet.getString("phone");
+                String password = resultSet.getString("password");
+                String fullName = resultSet.getString("full_name");
+                String role = resultSet.getString("role");
+                boolean status = resultSet.getBoolean("status");
+                user = new User(id, phone, password, fullName, role, status);
+            }
+            return user;
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    @Override
     public Boolean getUserByPhone(String phone) {
         String query = "select * from users where phone = ?";
         User user = null;

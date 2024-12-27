@@ -32,5 +32,11 @@
         <div class="drop drop-5"></div>
     </div>
 </div>
+
+<c:if test="${param.logout != null}">
+    <script type="text/javascript">
+        sessionStorage.clear();
+    </script>
+</c:if>
 </body>
 </html>

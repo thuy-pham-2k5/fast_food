@@ -73,7 +73,7 @@
             <p>${param.foodName}</p>
             <p>${param.foodPrice}</p>
             <form action="/home-user?action=addToCart&id=${param.foodId}" method="post">
-                <button>Thêm vào giỏ</button>
+                <button class="addToCart" data-food-id="${param.foodId}">Thêm vào giỏ</button>
             </form>
         </div>
     </a>

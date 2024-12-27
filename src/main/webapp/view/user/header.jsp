@@ -74,7 +74,8 @@
             <button type="submit">
                 <img src="https://cdn.iconfinder.com/stored_data/2047535/128/png?token=1735210197-riA83owJKKYunY7RL%2F0NOVXONHhGaEX2S%2FlCZd06vyY%3D" alt="Tìm kiếm">
             </button>
-            <a href="#"><img src="https://cdn.iconfinder.com/stored_data/2048338/128/png?token=1735261811-moUhnQ8Tz2n23WxD1lo%2BuhT8%2FEAC8RtKIcBpG%2BlRo8g%3D" alt="Error"></a>
+            <a href="/cart-user"><img src="https://cdn.iconfinder.com/stored_data/2048338/128/png?token=1735261811-moUhnQ8Tz2n23WxD1lo%2BuhT8%2FEAC8RtKIcBpG%2BlRo8g%3D" alt="Error"></a>
+            <a href="#"><img src="https://cdn.iconfinder.com/stored_data/2048347/128/png?token=1735262562-eY0OyFvqi6f2UUipXuhH1WaRvIAOOS8CHr%2FYCVN6NBI%3D"></a>
             <a href="logout"><img src="https://cdn.iconfinder.com/stored_data/2046252/128/png?token=1735098591-sBbCIG%2FbufbHVTkg2e56mmgHxyvMCs8LJA2T0WoexfU%3D" alt="Error"></a>
         </div>
     </div>

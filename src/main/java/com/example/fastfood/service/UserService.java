@@ -6,6 +6,7 @@ import javax.servlet.RequestDispatcher;
 import javax.servlet.http.HttpServletRequest;
 
 public interface UserService {
+    User getUserById (int id);
     Boolean getUserByPhone (String phone);
     Boolean getStatusById (int id);
     User login (String phone, String password);
