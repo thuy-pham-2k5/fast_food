@@ -35,8 +35,11 @@
 
     th, td {
         padding: 10px;
-        text-align: left;
-        border-bottom: 1px solid #ddd;
+        border: 1px solid #ddd;
+    }
+
+    #amount {
+        -webkit-text-fill-color: red;
     }
 
     th {
@@ -84,6 +87,20 @@
         margin-top: 10px;
         height: 20px;
     }
+
+    /* Center align specific columns */
+    td.checkbox,
+    td.image,
+    td.price,
+    td.quantity,
+    td.total {
+        text-align: center; /* Center align for checkbox, image, price, quantity, and total */
+    }
+
+    td.name {
+        text-align: left; /* Left align for name */
+    }
+
 </style>
 <body>
 <header>
@@ -106,8 +123,8 @@
                     <c:forEach items="${foods}" var="food">
                         <tr>
                             <td><input type="checkbox" class="checkbox"></td>
-                            <td><img src="${food.getImageUrl()}" alt="Error" width="100px"></td>
-                            <td>${food.getName()}</td>
+                            <td class="image"><img src="${food.getImageUrl()}" alt="Error" width="100px"></td>
+                            <td class="name">${food.getName()}</td>
                             <td class="price">${food.getPrice()}</td>
                             <td><input type="number" max="${food.getQuantity()}" value="1" class="quantity"></td>
                             <td class="total">${food.getPrice()}</td>

@@ -7,9 +7,10 @@
         height: 70px;
         display: flex;
         justify-content: space-between;
-        align-items: center; /* This ensures vertical centering */
+        align-items: center;
         box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-        padding: 0 20px; /* Optional: add padding for better spacing */
+        padding: 0 20px;
+        margin: 0;
     }
 
     .menu-button {
@@ -65,7 +66,7 @@
 </style>
 <div class="menu">
     <div class="menu-button">
-        <a href="#" ><img style="border-radius: 50%" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTlERRYmFAppRLJUU7Ki5EMSqOnDXCtW8FrgA&s"></a>
+        <a href="/home-user" ><img style="border-radius: 50%" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTlERRYmFAppRLJUU7Ki5EMSqOnDXCtW8FrgA&s"></a>
         <a href="#">Gà tây,bò hầm</a>
         <a href="#">Bánh kem</a>
         <a href="#">Kẹo</a>
